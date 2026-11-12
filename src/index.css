@@ -1,0 +1,378 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------
+   PRISM design tokens
+   Two surface themes are applied per section with data-theme="dark" |
+   "light". Components read the semantic variables (--fg, --line …), so
+   the same component renders correctly on either surface.
+   ------------------------------------------------------------------ */
+
+@theme {
+  --font-display: 'Space Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  /* Fixed brand + ramp values */
+  --color-ink-950: #060911;
+  --color-ink-900: #0a0e18;
+  --color-ink-850: #0f1420;
+  --color-ink-800: #161c2a;
+  --color-ink-700: #222a3b;
+  --color-fog-50: #eef0f5;
+  --color-fog-300: #a3a9b8;
+  --color-fog-500: #7d8599;
+  --color-paper: #f5f7fa;
+  --color-graphite-900: #111827;
+  --color-graphite-600: #4b5565;
+  --color-graphite-500: #626b7d;
+  --color-brand-blue: #0057d9;
+  --color-brand-blue-strong: #0047b3;
+  --color-brand-navy: #0d2d6c;
+  --color-brand-teal: #0aa5a5;
+  --color-brand-green: #0d9f6f;
+  --color-brand-violet: #6a5ae0;
+
+  --ease-prism: cubic-bezier(0.22, 1, 0.36, 1);
+  --breakpoint-xs: 26rem;
+}
+
+/* Semantic, theme-switched utilities: text-fg, bg-surface, border-line … */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-fg: var(--fg);
+  --color-fg-2: var(--fg-2);
+  --color-fg-3: var(--fg-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-positive: var(--positive);
+  --color-negative: var(--negative);
+  --color-btn: var(--btn-bg);
+  --color-btn-hover: var(--btn-bg-hover);
+  --color-btn-fg: var(--btn-fg);
+}
+
+:root,
+[data-theme='dark'] {
+  --bg: #0a0e18;
+  --surface: #0f1420;
+  --raised: #161c2a;
+  --fg: #eef0f5;
+  --fg-2: #a3a9b8;
+  --fg-3: #81899c;
+  --line: rgb(238 240 245 / 0.09);
+  --line-strong: rgb(238 240 245 / 0.18);
+  --accent: #4c8dff;
+  --accent-ink: #7fb0ff;
+  --focus: #8fbaff;
+  --positive: #4cc38a;
+  --negative: #e5484d;
+  --btn-bg: #eef0f5;
+  --btn-bg-hover: #ffffff;
+  --btn-fg: #0a0e18;
+
+  /* Capability spectrum on dark surfaces: violet → blue → teal → green */
+  --band-1: oklch(0.7 0.16 290);
+  --band-2: oklch(0.7 0.16 274);
+  --band-3: oklch(0.7 0.155 258);
+  --band-4: oklch(0.71 0.15 241);
+  --band-5: oklch(0.72 0.135 225);
+  --band-6: oklch(0.73 0.125 209);
+  --band-7: oklch(0.74 0.125 193);
+  --band-8: oklch(0.74 0.135 176);
+  --band-9: oklch(0.74 0.145 160);
+}
+
+[data-theme='light'] {
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --raised: #eceff4;
+  --fg: #111827;
+  --fg-2: #4b5565;
+  --fg-3: #5f687a;
+  --line: rgb(17 24 39 / 0.1);
+  --line-strong: rgb(17 24 39 / 0.18);
+  --accent: #0057d9;
+  --accent-ink: #0057d9;
+  --focus: #0057d9;
+  --positive: #15803d;
+  --negative: #dc2626;
+  --btn-bg: #0057d9;
+  --btn-bg-hover: #0047b3;
+  --btn-fg: #ffffff;
+
+  /* Capability spectrum on light surfaces (darker for contrast) */
+  --band-1: oklch(0.5 0.19 290);
+  --band-2: oklch(0.5 0.19 274);
+  --band-3: oklch(0.5 0.18 258);
+  --band-4: oklch(0.5 0.16 241);
+  --band-5: oklch(0.51 0.13 225);
+  --band-6: oklch(0.52 0.11 209);
+  --band-7: oklch(0.53 0.1 193);
+  --band-8: oklch(0.53 0.11 176);
+  --band-9: oklch(0.53 0.12 160);
+}
+
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+
+@layer base {
+  [data-theme] {
+    color: var(--fg);
+    background-color: var(--bg);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: var(--color-ink-900);
+    color: var(--color-fog-50);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background-color: rgb(76 141 255 / 0.35);
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Type scale
+   ------------------------------------------------------------------ */
+
+@utility text-display-xl {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.125rem, 1.1rem + 3.1vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+
+@utility text-display-l {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.75rem, 1.2rem + 1.7vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+@utility text-display-m {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.375rem, 1.1rem + 0.85vw, 1.875rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+@utility text-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+@utility text-lead {
+  font-size: clamp(1.0625rem, 0.98rem + 0.35vw, 1.25rem);
+  line-height: 1.6;
+}
+
+@utility text-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------------
+   Layout helpers
+   ------------------------------------------------------------------ */
+
+@utility shell {
+  width: 100%;
+  max-width: 85rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 48rem) {
+    padding-inline: 2rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 3rem;
+  }
+}
+
+@utility section-pad {
+  padding-block: 5rem;
+  @media (width >= 48rem) {
+    padding-block: 7rem;
+  }
+  @media (width >= 64rem) {
+    padding-block: 8rem;
+  }
+}
+
+/* Faint architectural grid used behind the hero and closing section */
+@utility grid-lines {
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: 80px 80px;
+  background-position: -1px -1px;
+}
+
+/* ------------------------------------------------------------------
+   Trace pulses travelling along SVG paths (pathLength="100")
+   ------------------------------------------------------------------ */
+
+@keyframes trace-travel {
+  from {
+    stroke-dashoffset: 8;
+  }
+  to {
+    stroke-dashoffset: -200;
+  }
+}
+
+.trace-pulse {
+  stroke-dasharray: 8 200;
+  stroke-dashoffset: 8;
+  animation: trace-travel var(--pulse-duration, 7s) linear infinite;
+  animation-delay: var(--pulse-delay, 0s);
+}
+
+[data-paused='true'] .trace-pulse {
+  animation-play-state: paused;
+}
+
+/* ------------------------------------------------------------------
+   Closing beam — one synchronised wave per cycle.
+   Bands (pathLength 100) share timing, so every pulse reaches the prism
+   at the same moment regardless of its length; the prism flashes; one
+   burst leaves along the exit beam; then a rest.
+   ------------------------------------------------------------------ */
+
+@keyframes converge-in {
+  0% {
+    stroke-dashoffset: 22;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.85, 0.4);
+  }
+  44%,
+  100% {
+    stroke-dashoffset: -104;
+  }
+}
+
+@keyframes converge-flash {
+  0%,
+  40% {
+    opacity: 0;
+  }
+  46% {
+    opacity: 1;
+  }
+  74%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes converge-out {
+  0%,
+  45% {
+    stroke-dashoffset: 30;
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+  85%,
+  100% {
+    stroke-dashoffset: -104;
+  }
+}
+
+.converge-in {
+  stroke-dasharray: 18 200;
+  stroke-dashoffset: 22;
+  animation: converge-in 6s linear infinite;
+}
+
+.converge-flash {
+  opacity: 0;
+  animation: converge-flash 6s linear infinite;
+}
+
+.converge-out {
+  stroke-dasharray: 26 200;
+  stroke-dashoffset: 30;
+  animation: converge-out 6s linear infinite;
+}
+
+[data-armed='false'] :is(.converge-in, .converge-flash, .converge-out) {
+  animation: none;
+  visibility: hidden;
+}
+
+[data-paused='true'] :is(.converge-in, .converge-flash, .converge-out) {
+  animation-play-state: paused;
+}
+
+/* ------------------------------------------------------------------
+   Reduced motion
+   ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .trace-pulse,
+  .converge-in,
+  .converge-flash,
+  .converge-out {
+    display: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
