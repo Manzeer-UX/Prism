@@ -4,3 +4,9 @@ dist
 .DS_Store
 .vite
 .claude
+
+# Launch film: renders, caches and scratch (sources stay in git)
+video/out
+video/.cache
+video/.tmp
+video/public/audio/mix-*.wav

@@ -1,0 +1,40 @@
+{
+  "name": "prism-ai-launch-film",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "PRISM AI — cinematic enterprise launch film (Remotion + React Three Fiber). Separate from the website build.",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "capture": "node scripts/capture-ui.mjs",
+    "vo": "node scripts/voiceover.mjs",
+    "audio": "node scripts/audio.mjs",
+    "still": "remotion still src/index.ts",
+    "render:preview": "remotion render src/index.ts PrismLaunchFilm out/preview-540p.mp4 --scale=0.5 --muted",
+    "render:master": "node scripts/render.mjs --scale 1",
+    "render:4k": "node scripts/render.mjs --scale 2 --concurrency 2",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@fontsource-variable/space-grotesk": "^5.3.0",
+    "@react-three/fiber": "9.8.2",
+    "@remotion/cli": "4.0.543",
+    "@remotion/three": "4.0.543",
+    "lucide-react": "1.72.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.543",
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "0.187.0",
+    "kokoro-js": "1.2.1",
+    "playwright": "1.65.0",
+    "tone": "15.1.22",
+    "typescript": "^5.9.3"
+  }
+}
