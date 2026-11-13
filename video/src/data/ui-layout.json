@@ -1,0 +1,2365 @@
+{
+ "dpr": 3,
+ "states": {
+  "overview": [
+   {
+    "kind": "window",
+    "text": "window",
+    "x": 0,
+    "y": 0,
+    "w": 1264,
+    "h": 700
+   },
+   {
+    "kind": "panel",
+    "text": "panel",
+    "x": 57,
+    "y": 49,
+    "w": 1206,
+    "h": 650
+   },
+   {
+    "kind": "rail",
+    "text": "logo",
+    "x": 11,
+    "y": 17,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "overview",
+    "x": 11,
+    "y": 73,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "traces",
+    "x": 11,
+    "y": 117,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "prompts",
+    "x": 11,
+    "y": 161,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "evaluations",
+    "x": 11,
+    "y": 205,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "analytics",
+    "x": 11,
+    "y": 249,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "header",
+    "text": "OverviewSample dataSystem operational",
+    "x": 57,
+    "y": 1,
+    "w": 1206,
+    "h": 48
+   },
+   {
+    "kind": "card",
+    "text": "Total traces",
+    "x": 77,
+    "y": 69,
+    "w": 279.5,
+    "h": 130.8
+   },
+   {
+    "kind": "card",
+    "text": "Total cost",
+    "x": 372.5,
+    "y": 69,
+    "w": 279.5,
+    "h": 130.8
+   },
+   {
+    "kind": "card",
+    "text": "Average latency",
+    "x": 668,
+    "y": 69,
+    "w": 279.5,
+    "h": 130.8
+   },
+   {
+    "kind": "card",
+    "text": "Error rate",
+    "x": 963.5,
+    "y": 69,
+    "w": 279.5,
+    "h": 130.8
+   },
+   {
+    "kind": "card",
+    "text": "Traces over time",
+    "x": 77,
+    "y": 215.8,
+    "w": 772,
+    "h": 356.9
+   },
+   {
+    "kind": "card",
+    "text": "Top models by usage",
+    "x": 865,
+    "y": 215.8,
+    "w": 378,
+    "h": 356.9
+   },
+   {
+    "kind": "card",
+    "text": "Evaluation success rate",
+    "x": 77,
+    "y": 588.7,
+    "w": 1166,
+    "h": 89.4
+   },
+   {
+    "kind": "stat",
+    "text": "Total traces1.23M1.23M+17.3%",
+    "x": 77,
+    "y": 69,
+    "w": 279.5,
+    "h": 130.8
+   },
+   {
+    "kind": "stat",
+    "text": "Total cost$12,345.67$12,345.67+8.6%",
+    "x": 372.5,
+    "y": 69,
+    "w": 279.5,
+    "h": 130.8
+   },
+   {
+    "kind": "stat",
+    "text": "Average latency1.45s1.45s+3.1%",
+    "x": 668,
+    "y": 69,
+    "w": 279.5,
+    "h": 130.8
+   },
+   {
+    "kind": "stat",
+    "text": "Error rate0.27%0.27%+2.4%",
+    "x": 963.5,
+    "y": 69,
+    "w": 279.5,
+    "h": 130.8
+   },
+   {
+    "kind": "li",
+    "text": "GPT-4o42%",
+    "x": 886,
+    "y": 340.3,
+    "w": 336,
+    "h": 36.8
+   },
+   {
+    "kind": "li",
+    "text": "Claude 3.533%",
+    "x": 886,
+    "y": 397,
+    "w": 336,
+    "h": 36.8
+   },
+   {
+    "kind": "li",
+    "text": "Llama 3.125%",
+    "x": 886,
+    "y": 453.8,
+    "w": 336,
+    "h": 36.8
+   },
+   {
+    "kind": "chart",
+    "text": "Sample chart: traces over the last 7 days, trending upward",
+    "x": 98,
+    "y": 275.2,
+    "w": 730,
+    "h": 250.9
+   }
+  ],
+  "traces": [
+   {
+    "kind": "window",
+    "text": "window",
+    "x": 0,
+    "y": 0,
+    "w": 1264,
+    "h": 700
+   },
+   {
+    "kind": "panel",
+    "text": "panel",
+    "x": 57,
+    "y": 49,
+    "w": 1206,
+    "h": 650
+   },
+   {
+    "kind": "rail",
+    "text": "logo",
+    "x": 11,
+    "y": 17,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "overview",
+    "x": 11,
+    "y": 73,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "traces",
+    "x": 11,
+    "y": 117,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "prompts",
+    "x": 11,
+    "y": 161,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "evaluations",
+    "x": 11,
+    "y": 205,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "analytics",
+    "x": 11,
+    "y": 249,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "header",
+    "text": "TracesSample dataSystem operational",
+    "x": 57,
+    "y": 1,
+    "w": 1206,
+    "h": 48
+   },
+   {
+    "kind": "card",
+    "text": "Trace waterfall",
+    "x": 77,
+    "y": 69,
+    "w": 910,
+    "h": 329.4
+   },
+   {
+    "kind": "card",
+    "text": "Selected span",
+    "x": 1003,
+    "y": 69,
+    "w": 240,
+    "h": 329.4
+   },
+   {
+    "kind": "stat",
+    "text": "ModelGPT-4o",
+    "x": 1024,
+    "y": 152.4,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "Tokens1,284",
+    "x": 1024,
+    "y": 194.2,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "Latency1.14s",
+    "x": 1024,
+    "y": 236,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "Cost$0.011",
+    "x": 1024,
+    "y": 277.8,
+    "w": 198,
+    "h": 40.8
+   },
+   {
+    "kind": "row",
+    "text": "agent.run2.41s",
+    "x": 86,
+    "y": 125.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "plan.step0.29s",
+    "x": 86,
+    "y": 169.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "retrieval.search0.41s",
+    "x": 86,
+    "y": 213.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "llm.generate1.14s",
+    "x": 86,
+    "y": 257.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "tool.call0.23s",
+    "x": 86,
+    "y": 301.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "eval.judge0.19s",
+    "x": 86,
+    "y": 345.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "agent.run2.41s",
+    "x": 86,
+    "y": 125.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "plan.step0.29s",
+    "x": 86,
+    "y": 169.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "retrieval.search0.41s",
+    "x": 86,
+    "y": 213.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "llm.generate1.14s",
+    "x": 86,
+    "y": 257.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "tool.call0.23s",
+    "x": 86,
+    "y": 301.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "eval.judge0.19s",
+    "x": 86,
+    "y": 345.4,
+    "w": 892,
+    "h": 44
+   }
+  ],
+  "traces-run": [
+   {
+    "kind": "window",
+    "text": "window",
+    "x": 0,
+    "y": 0,
+    "w": 1264,
+    "h": 700
+   },
+   {
+    "kind": "panel",
+    "text": "panel",
+    "x": 57,
+    "y": 49,
+    "w": 1206,
+    "h": 650
+   },
+   {
+    "kind": "rail",
+    "text": "logo",
+    "x": 11,
+    "y": 17,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "overview",
+    "x": 11,
+    "y": 73,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "traces",
+    "x": 11,
+    "y": 117,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "prompts",
+    "x": 11,
+    "y": 161,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "evaluations",
+    "x": 11,
+    "y": 205,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "analytics",
+    "x": 11,
+    "y": 249,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "header",
+    "text": "TracesSample dataSystem operational",
+    "x": 57,
+    "y": 1,
+    "w": 1206,
+    "h": 48
+   },
+   {
+    "kind": "card",
+    "text": "Trace waterfall",
+    "x": 77,
+    "y": 69,
+    "w": 910,
+    "h": 329.4
+   },
+   {
+    "kind": "card",
+    "text": "Selected span",
+    "x": 1003,
+    "y": 69,
+    "w": 240,
+    "h": 329.4
+   },
+   {
+    "kind": "stat",
+    "text": "Steps5",
+    "x": 1024,
+    "y": 152.4,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "Tokens1,842",
+    "x": 1024,
+    "y": 194.2,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "Cost$0.014",
+    "x": 1024,
+    "y": 236,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "StatusCompleted",
+    "x": 1024,
+    "y": 277.8,
+    "w": 198,
+    "h": 40.8
+   },
+   {
+    "kind": "row",
+    "text": "agent.run2.41s",
+    "x": 86,
+    "y": 125.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "plan.step0.29s",
+    "x": 86,
+    "y": 169.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "retrieval.search0.41s",
+    "x": 86,
+    "y": 213.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "llm.generate1.14s",
+    "x": 86,
+    "y": 257.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "tool.call0.23s",
+    "x": 86,
+    "y": 301.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "eval.judge0.19s",
+    "x": 86,
+    "y": 345.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "agent.run2.41s",
+    "x": 86,
+    "y": 125.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "plan.step0.29s",
+    "x": 86,
+    "y": 169.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "retrieval.search0.41s",
+    "x": 86,
+    "y": 213.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "llm.generate1.14s",
+    "x": 86,
+    "y": 257.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "tool.call0.23s",
+    "x": 86,
+    "y": 301.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "eval.judge0.19s",
+    "x": 86,
+    "y": 345.4,
+    "w": 892,
+    "h": 44
+   }
+  ],
+  "traces-plan": [
+   {
+    "kind": "window",
+    "text": "window",
+    "x": 0,
+    "y": 0,
+    "w": 1264,
+    "h": 700
+   },
+   {
+    "kind": "panel",
+    "text": "panel",
+    "x": 57,
+    "y": 49,
+    "w": 1206,
+    "h": 650
+   },
+   {
+    "kind": "rail",
+    "text": "logo",
+    "x": 11,
+    "y": 17,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "overview",
+    "x": 11,
+    "y": 73,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "traces",
+    "x": 11,
+    "y": 117,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "prompts",
+    "x": 11,
+    "y": 161,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "evaluations",
+    "x": 11,
+    "y": 205,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "analytics",
+    "x": 11,
+    "y": 249,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "header",
+    "text": "TracesSample dataSystem operational",
+    "x": 57,
+    "y": 1,
+    "w": 1206,
+    "h": 48
+   },
+   {
+    "kind": "card",
+    "text": "Trace waterfall",
+    "x": 77,
+    "y": 69,
+    "w": 910,
+    "h": 329.4
+   },
+   {
+    "kind": "card",
+    "text": "Selected span",
+    "x": 1003,
+    "y": 69,
+    "w": 240,
+    "h": 329.4
+   },
+   {
+    "kind": "stat",
+    "text": "Decisionretrieve → answer",
+    "x": 1024,
+    "y": 152.4,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "Tokens212",
+    "x": 1024,
+    "y": 194.2,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "Latency0.29s",
+    "x": 1024,
+    "y": 236,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "StatusOK",
+    "x": 1024,
+    "y": 277.8,
+    "w": 198,
+    "h": 40.8
+   },
+   {
+    "kind": "row",
+    "text": "agent.run2.41s",
+    "x": 86,
+    "y": 125.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "plan.step0.29s",
+    "x": 86,
+    "y": 169.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "retrieval.search0.41s",
+    "x": 86,
+    "y": 213.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "llm.generate1.14s",
+    "x": 86,
+    "y": 257.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "tool.call0.23s",
+    "x": 86,
+    "y": 301.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "eval.judge0.19s",
+    "x": 86,
+    "y": 345.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "agent.run2.41s",
+    "x": 86,
+    "y": 125.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "plan.step0.29s",
+    "x": 86,
+    "y": 169.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "retrieval.search0.41s",
+    "x": 86,
+    "y": 213.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "llm.generate1.14s",
+    "x": 86,
+    "y": 257.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "tool.call0.23s",
+    "x": 86,
+    "y": 301.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "eval.judge0.19s",
+    "x": 86,
+    "y": 345.4,
+    "w": 892,
+    "h": 44
+   }
+  ],
+  "traces-retrieve": [
+   {
+    "kind": "window",
+    "text": "window",
+    "x": 0,
+    "y": 0,
+    "w": 1264,
+    "h": 700
+   },
+   {
+    "kind": "panel",
+    "text": "panel",
+    "x": 57,
+    "y": 49,
+    "w": 1206,
+    "h": 650
+   },
+   {
+    "kind": "rail",
+    "text": "logo",
+    "x": 11,
+    "y": 17,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "overview",
+    "x": 11,
+    "y": 73,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "traces",
+    "x": 11,
+    "y": 117,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "prompts",
+    "x": 11,
+    "y": 161,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "evaluations",
+    "x": 11,
+    "y": 205,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "analytics",
+    "x": 11,
+    "y": 249,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "header",
+    "text": "TracesSample dataSystem operational",
+    "x": 57,
+    "y": 1,
+    "w": 1206,
+    "h": 48
+   },
+   {
+    "kind": "card",
+    "text": "Trace waterfall",
+    "x": 77,
+    "y": 69,
+    "w": 910,
+    "h": 329.4
+   },
+   {
+    "kind": "card",
+    "text": "Selected span",
+    "x": 1003,
+    "y": 69,
+    "w": 240,
+    "h": 329.4
+   },
+   {
+    "kind": "stat",
+    "text": "Chunks6 of 40",
+    "x": 1024,
+    "y": 152.4,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "Sources cited3",
+    "x": 1024,
+    "y": 194.2,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "Latency0.41s",
+    "x": 1024,
+    "y": 236,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "StatusOK",
+    "x": 1024,
+    "y": 277.8,
+    "w": 198,
+    "h": 40.8
+   },
+   {
+    "kind": "row",
+    "text": "agent.run2.41s",
+    "x": 86,
+    "y": 125.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "plan.step0.29s",
+    "x": 86,
+    "y": 169.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "retrieval.search0.41s",
+    "x": 86,
+    "y": 213.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "llm.generate1.14s",
+    "x": 86,
+    "y": 257.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "tool.call0.23s",
+    "x": 86,
+    "y": 301.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "eval.judge0.19s",
+    "x": 86,
+    "y": 345.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "agent.run2.41s",
+    "x": 86,
+    "y": 125.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "plan.step0.29s",
+    "x": 86,
+    "y": 169.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "retrieval.search0.41s",
+    "x": 86,
+    "y": 213.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "llm.generate1.14s",
+    "x": 86,
+    "y": 257.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "tool.call0.23s",
+    "x": 86,
+    "y": 301.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "eval.judge0.19s",
+    "x": 86,
+    "y": 345.4,
+    "w": 892,
+    "h": 44
+   }
+  ],
+  "traces-tool": [
+   {
+    "kind": "window",
+    "text": "window",
+    "x": 0,
+    "y": 0,
+    "w": 1264,
+    "h": 700
+   },
+   {
+    "kind": "panel",
+    "text": "panel",
+    "x": 57,
+    "y": 49,
+    "w": 1206,
+    "h": 650
+   },
+   {
+    "kind": "rail",
+    "text": "logo",
+    "x": 11,
+    "y": 17,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "overview",
+    "x": 11,
+    "y": 73,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "traces",
+    "x": 11,
+    "y": 117,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "prompts",
+    "x": 11,
+    "y": 161,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "evaluations",
+    "x": 11,
+    "y": 205,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "analytics",
+    "x": 11,
+    "y": 249,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "header",
+    "text": "TracesSample dataSystem operational",
+    "x": 57,
+    "y": 1,
+    "w": 1206,
+    "h": 48
+   },
+   {
+    "kind": "card",
+    "text": "Trace waterfall",
+    "x": 77,
+    "y": 69,
+    "w": 910,
+    "h": 329.4
+   },
+   {
+    "kind": "card",
+    "text": "Selected span",
+    "x": 1003,
+    "y": 69,
+    "w": 240,
+    "h": 329.4
+   },
+   {
+    "kind": "stat",
+    "text": "Toolticket.lookup",
+    "x": 1024,
+    "y": 152.4,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "Attempts1",
+    "x": 1024,
+    "y": 194.2,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "Latency0.23s",
+    "x": 1024,
+    "y": 236,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "StatusOK",
+    "x": 1024,
+    "y": 277.8,
+    "w": 198,
+    "h": 40.8
+   },
+   {
+    "kind": "row",
+    "text": "agent.run2.41s",
+    "x": 86,
+    "y": 125.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "plan.step0.29s",
+    "x": 86,
+    "y": 169.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "retrieval.search0.41s",
+    "x": 86,
+    "y": 213.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "llm.generate1.14s",
+    "x": 86,
+    "y": 257.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "tool.call0.23s",
+    "x": 86,
+    "y": 301.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "eval.judge0.19s",
+    "x": 86,
+    "y": 345.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "agent.run2.41s",
+    "x": 86,
+    "y": 125.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "plan.step0.29s",
+    "x": 86,
+    "y": 169.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "retrieval.search0.41s",
+    "x": 86,
+    "y": 213.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "llm.generate1.14s",
+    "x": 86,
+    "y": 257.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "tool.call0.23s",
+    "x": 86,
+    "y": 301.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "eval.judge0.19s",
+    "x": 86,
+    "y": 345.4,
+    "w": 892,
+    "h": 44
+   }
+  ],
+  "traces-eval": [
+   {
+    "kind": "window",
+    "text": "window",
+    "x": 0,
+    "y": 0,
+    "w": 1264,
+    "h": 700
+   },
+   {
+    "kind": "panel",
+    "text": "panel",
+    "x": 57,
+    "y": 49,
+    "w": 1206,
+    "h": 650
+   },
+   {
+    "kind": "rail",
+    "text": "logo",
+    "x": 11,
+    "y": 17,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "overview",
+    "x": 11,
+    "y": 73,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "traces",
+    "x": 11,
+    "y": 117,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "prompts",
+    "x": 11,
+    "y": 161,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "evaluations",
+    "x": 11,
+    "y": 205,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "analytics",
+    "x": 11,
+    "y": 249,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "header",
+    "text": "TracesSample dataSystem operational",
+    "x": 57,
+    "y": 1,
+    "w": 1206,
+    "h": 48
+   },
+   {
+    "kind": "card",
+    "text": "Trace waterfall",
+    "x": 77,
+    "y": 69,
+    "w": 910,
+    "h": 329.4
+   },
+   {
+    "kind": "card",
+    "text": "Selected span",
+    "x": 1003,
+    "y": 69,
+    "w": 240,
+    "h": 329.4
+   },
+   {
+    "kind": "stat",
+    "text": "MethodLLM-as-a-Judge",
+    "x": 1024,
+    "y": 152.4,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "RelevancePass",
+    "x": 1024,
+    "y": 194.2,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "HallucinationNone found",
+    "x": 1024,
+    "y": 236,
+    "w": 198,
+    "h": 41.8
+   },
+   {
+    "kind": "stat",
+    "text": "Latency0.19s",
+    "x": 1024,
+    "y": 277.8,
+    "w": 198,
+    "h": 40.8
+   },
+   {
+    "kind": "row",
+    "text": "agent.run2.41s",
+    "x": 86,
+    "y": 125.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "plan.step0.29s",
+    "x": 86,
+    "y": 169.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "retrieval.search0.41s",
+    "x": 86,
+    "y": 213.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "llm.generate1.14s",
+    "x": 86,
+    "y": 257.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "tool.call0.23s",
+    "x": 86,
+    "y": 301.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "row",
+    "text": "eval.judge0.19s",
+    "x": 86,
+    "y": 345.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "agent.run2.41s",
+    "x": 86,
+    "y": 125.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "plan.step0.29s",
+    "x": 86,
+    "y": 169.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "retrieval.search0.41s",
+    "x": 86,
+    "y": 213.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "llm.generate1.14s",
+    "x": 86,
+    "y": 257.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "tool.call0.23s",
+    "x": 86,
+    "y": 301.4,
+    "w": 892,
+    "h": 44
+   },
+   {
+    "kind": "li",
+    "text": "eval.judge0.19s",
+    "x": 86,
+    "y": 345.4,
+    "w": 892,
+    "h": 44
+   }
+  ],
+  "prompts": [
+   {
+    "kind": "window",
+    "text": "window",
+    "x": 0,
+    "y": 0,
+    "w": 1264,
+    "h": 700
+   },
+   {
+    "kind": "panel",
+    "text": "panel",
+    "x": 57,
+    "y": 49,
+    "w": 1206,
+    "h": 650
+   },
+   {
+    "kind": "rail",
+    "text": "logo",
+    "x": 11,
+    "y": 17,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "overview",
+    "x": 11,
+    "y": 73,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "traces",
+    "x": 11,
+    "y": 117,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "prompts",
+    "x": 11,
+    "y": 161,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "evaluations",
+    "x": 11,
+    "y": 205,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "analytics",
+    "x": 11,
+    "y": 249,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "header",
+    "text": "PromptsSample dataSystem operational",
+    "x": 57,
+    "y": 1,
+    "w": 1206,
+    "h": 48
+   },
+   {
+    "kind": "card",
+    "text": "support-reply",
+    "x": 77,
+    "y": 69,
+    "w": 272,
+    "h": 272.9
+   },
+   {
+    "kind": "card",
+    "text": "",
+    "x": 365,
+    "y": 69,
+    "w": 878,
+    "h": 272.9
+   },
+   {
+    "kind": "row",
+    "text": "v14R. Mehta · 12 NovStaging",
+    "x": 86,
+    "y": 147,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "row",
+    "text": "v13A. Okafor · 04 NovProduction",
+    "x": 86,
+    "y": 209,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "row",
+    "text": "v12R. Mehta · 28 OctDevelopment",
+    "x": 86,
+    "y": 271,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "li",
+    "text": "v14R. Mehta · 12 NovStaging",
+    "x": 86,
+    "y": 147,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "li",
+    "text": "v13A. Okafor · 04 NovProduction",
+    "x": 86,
+    "y": 209,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "li",
+    "text": "v12R. Mehta · 28 OctDevelopment",
+    "x": 86,
+    "y": 271,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "li",
+    "text": "Development→",
+    "x": 386,
+    "y": 82,
+    "w": 110.7,
+    "h": 27.2
+   },
+   {
+    "kind": "li",
+    "text": "Staging→",
+    "x": 502.7,
+    "y": 82,
+    "w": 79,
+    "h": 27.2
+   },
+   {
+    "kind": "li",
+    "text": "Production",
+    "x": 587.7,
+    "y": 82,
+    "w": 77.6,
+    "h": 27.2
+   },
+   {
+    "kind": "pre",
+    "text": "You are a support assistant for {product}.−Removed: Answer every question in ful",
+    "x": 366,
+    "y": 122.2,
+    "w": 876,
+    "h": 177.8
+   },
+   {
+    "kind": "ol",
+    "text": "Development→Staging→Production",
+    "x": 386,
+    "y": 82,
+    "w": 279.3,
+    "h": 27.2
+   }
+  ],
+  "prompts-v13": [
+   {
+    "kind": "window",
+    "text": "window",
+    "x": 0,
+    "y": 0,
+    "w": 1264,
+    "h": 700
+   },
+   {
+    "kind": "panel",
+    "text": "panel",
+    "x": 57,
+    "y": 49,
+    "w": 1206,
+    "h": 650
+   },
+   {
+    "kind": "rail",
+    "text": "logo",
+    "x": 11,
+    "y": 17,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "overview",
+    "x": 11,
+    "y": 73,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "traces",
+    "x": 11,
+    "y": 117,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "prompts",
+    "x": 11,
+    "y": 161,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "evaluations",
+    "x": 11,
+    "y": 205,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "analytics",
+    "x": 11,
+    "y": 249,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "header",
+    "text": "PromptsSample dataSystem operational",
+    "x": 57,
+    "y": 1,
+    "w": 1206,
+    "h": 48
+   },
+   {
+    "kind": "card",
+    "text": "support-reply",
+    "x": 77,
+    "y": 69,
+    "w": 272,
+    "h": 272.9
+   },
+   {
+    "kind": "card",
+    "text": "",
+    "x": 365,
+    "y": 69,
+    "w": 878,
+    "h": 272.9
+   },
+   {
+    "kind": "row",
+    "text": "v14R. Mehta · 12 NovStaging",
+    "x": 86,
+    "y": 147,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "row",
+    "text": "v13A. Okafor · 04 NovProduction",
+    "x": 86,
+    "y": 209,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "row",
+    "text": "v12R. Mehta · 28 OctDevelopment",
+    "x": 86,
+    "y": 271,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "li",
+    "text": "v14R. Mehta · 12 NovStaging",
+    "x": 86,
+    "y": 147,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "li",
+    "text": "v13A. Okafor · 04 NovProduction",
+    "x": 86,
+    "y": 209,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "li",
+    "text": "v12R. Mehta · 28 OctDevelopment",
+    "x": 86,
+    "y": 271,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "li",
+    "text": "Development→",
+    "x": 386,
+    "y": 82,
+    "w": 110.7,
+    "h": 27.2
+   },
+   {
+    "kind": "li",
+    "text": "Staging→",
+    "x": 502.7,
+    "y": 82,
+    "w": 79,
+    "h": 27.2
+   },
+   {
+    "kind": "li",
+    "text": "Production",
+    "x": 587.7,
+    "y": 82,
+    "w": 77.6,
+    "h": 27.2
+   },
+   {
+    "kind": "pre",
+    "text": "You are a support assistant for {product}.−Removed: Be friendly.+Added: Answer e",
+    "x": 366,
+    "y": 122.2,
+    "w": 876,
+    "h": 177.8
+   },
+   {
+    "kind": "ol",
+    "text": "Development→Staging→Production",
+    "x": 386,
+    "y": 82,
+    "w": 279.3,
+    "h": 27.2
+   }
+  ],
+  "prompts-v12": [
+   {
+    "kind": "window",
+    "text": "window",
+    "x": 0,
+    "y": 0,
+    "w": 1264,
+    "h": 700
+   },
+   {
+    "kind": "panel",
+    "text": "panel",
+    "x": 57,
+    "y": 49,
+    "w": 1206,
+    "h": 650
+   },
+   {
+    "kind": "rail",
+    "text": "logo",
+    "x": 11,
+    "y": 17,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "overview",
+    "x": 11,
+    "y": 73,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "traces",
+    "x": 11,
+    "y": 117,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "prompts",
+    "x": 11,
+    "y": 161,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "evaluations",
+    "x": 11,
+    "y": 205,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "analytics",
+    "x": 11,
+    "y": 249,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "header",
+    "text": "PromptsSample dataSystem operational",
+    "x": 57,
+    "y": 1,
+    "w": 1206,
+    "h": 48
+   },
+   {
+    "kind": "card",
+    "text": "support-reply",
+    "x": 77,
+    "y": 69,
+    "w": 272,
+    "h": 272.9
+   },
+   {
+    "kind": "card",
+    "text": "",
+    "x": 365,
+    "y": 69,
+    "w": 878,
+    "h": 272.9
+   },
+   {
+    "kind": "row",
+    "text": "v14R. Mehta · 12 NovStaging",
+    "x": 86,
+    "y": 147,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "row",
+    "text": "v13A. Okafor · 04 NovProduction",
+    "x": 86,
+    "y": 209,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "row",
+    "text": "v12R. Mehta · 28 OctDevelopment",
+    "x": 86,
+    "y": 271,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "li",
+    "text": "v14R. Mehta · 12 NovStaging",
+    "x": 86,
+    "y": 147,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "li",
+    "text": "v13A. Okafor · 04 NovProduction",
+    "x": 86,
+    "y": 209,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "li",
+    "text": "v12R. Mehta · 28 OctDevelopment",
+    "x": 86,
+    "y": 271,
+    "w": 254,
+    "h": 62
+   },
+   {
+    "kind": "li",
+    "text": "Development→",
+    "x": 386,
+    "y": 82,
+    "w": 110.7,
+    "h": 27.2
+   },
+   {
+    "kind": "li",
+    "text": "Staging→",
+    "x": 502.7,
+    "y": 82,
+    "w": 79,
+    "h": 27.2
+   },
+   {
+    "kind": "li",
+    "text": "Production",
+    "x": 587.7,
+    "y": 82,
+    "w": 77.6,
+    "h": 27.2
+   },
+   {
+    "kind": "pre",
+    "text": "You are a support assistant for {product}.+Added: Be friendly.",
+    "x": 366,
+    "y": 122.2,
+    "w": 876,
+    "h": 177.8
+   },
+   {
+    "kind": "ol",
+    "text": "Development→Staging→Production",
+    "x": 386,
+    "y": 82,
+    "w": 279.3,
+    "h": 27.2
+   }
+  ],
+  "evaluations": [
+   {
+    "kind": "window",
+    "text": "window",
+    "x": 0,
+    "y": 0,
+    "w": 1264,
+    "h": 700
+   },
+   {
+    "kind": "panel",
+    "text": "panel",
+    "x": 57,
+    "y": 49,
+    "w": 1206,
+    "h": 650
+   },
+   {
+    "kind": "rail",
+    "text": "logo",
+    "x": 11,
+    "y": 17,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "overview",
+    "x": 11,
+    "y": 73,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "traces",
+    "x": 11,
+    "y": 117,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "prompts",
+    "x": 11,
+    "y": 161,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "evaluations",
+    "x": 11,
+    "y": 205,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "analytics",
+    "x": 11,
+    "y": 249,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "header",
+    "text": "EvaluationsSample dataSystem operational",
+    "x": 57,
+    "y": 1,
+    "w": 1206,
+    "h": 48
+   },
+   {
+    "kind": "card",
+    "text": "Evaluation success rate",
+    "x": 77,
+    "y": 69,
+    "w": 240,
+    "h": 381.3
+   },
+   {
+    "kind": "card",
+    "text": "Quality scorecard",
+    "x": 333,
+    "y": 69,
+    "w": 910,
+    "h": 381.3
+   },
+   {
+    "kind": "stat",
+    "text": "Automated1,240 runs",
+    "x": 98,
+    "y": 354.7,
+    "w": 198,
+    "h": 37.8
+   },
+   {
+    "kind": "stat",
+    "text": "Human review86 runs",
+    "x": 98,
+    "y": 392.5,
+    "w": 198,
+    "h": 36.8
+   },
+   {
+    "kind": "li",
+    "text": "RelevanceLLM-as-a-Judge94%",
+    "x": 354,
+    "y": 117.4,
+    "w": 868,
+    "h": 66.6
+   },
+   {
+    "kind": "li",
+    "text": "FaithfulnessHallucination detection91%",
+    "x": 354,
+    "y": 184,
+    "w": 868,
+    "h": 66.6
+   },
+   {
+    "kind": "li",
+    "text": "SafetySafety detection98%",
+    "x": 354,
+    "y": 250.5,
+    "w": 868,
+    "h": 66.6
+   },
+   {
+    "kind": "li",
+    "text": "Tone & policyCustom metric89%",
+    "x": 354,
+    "y": 317.1,
+    "w": 868,
+    "h": 66.6
+   },
+   {
+    "kind": "li",
+    "text": "Regression suiteBenchmark dataset96%",
+    "x": 354,
+    "y": 383.7,
+    "w": 868,
+    "h": 65.6
+   }
+  ],
+  "analytics": [
+   {
+    "kind": "window",
+    "text": "window",
+    "x": 0,
+    "y": 0,
+    "w": 1264,
+    "h": 700
+   },
+   {
+    "kind": "panel",
+    "text": "panel",
+    "x": 57,
+    "y": 49,
+    "w": 1206,
+    "h": 650
+   },
+   {
+    "kind": "rail",
+    "text": "logo",
+    "x": 11,
+    "y": 17,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "overview",
+    "x": 11,
+    "y": 73,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "traces",
+    "x": 11,
+    "y": 117,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "prompts",
+    "x": 11,
+    "y": 161,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "evaluations",
+    "x": 11,
+    "y": 205,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "rail",
+    "text": "analytics",
+    "x": 11,
+    "y": 249,
+    "w": 36,
+    "h": 36
+   },
+   {
+    "kind": "header",
+    "text": "AnalyticsSample dataSystem operational",
+    "x": 57,
+    "y": 1,
+    "w": 1206,
+    "h": 48
+   },
+   {
+    "kind": "card",
+    "text": "Cost by model",
+    "x": 77,
+    "y": 69,
+    "w": 772,
+    "h": 286
+   },
+   {
+    "kind": "card",
+    "text": "Latency percentiles",
+    "x": 865,
+    "y": 69,
+    "w": 378,
+    "h": 286
+   },
+   {
+    "kind": "card",
+    "text": "Model performance",
+    "x": 77,
+    "y": 371,
+    "w": 1166,
+    "h": 227.6
+   },
+   {
+    "kind": "li",
+    "text": "GPT-4o",
+    "x": 597.8,
+    "y": 92.4,
+    "w": 58,
+    "h": 19.2
+   },
+   {
+    "kind": "li",
+    "text": "Claude 3.5",
+    "x": 671.7,
+    "y": 92.4,
+    "w": 74.8,
+    "h": 19.2
+   },
+   {
+    "kind": "li",
+    "text": "Llama 3.1",
+    "x": 762.5,
+    "y": 92.4,
+    "w": 65.5,
+    "h": 19.2
+   },
+   {
+    "kind": "li",
+    "text": "p501.12s",
+    "x": 886,
+    "y": 161,
+    "w": 336,
+    "h": 34.8
+   },
+   {
+    "kind": "li",
+    "text": "p952.84s",
+    "x": 886,
+    "y": 215.8,
+    "w": 336,
+    "h": 34.8
+   },
+   {
+    "kind": "li",
+    "text": "p994.10s",
+    "x": 886,
+    "y": 270.6,
+    "w": 336,
+    "h": 34.8
+   },
+   {
+    "kind": "tr",
+    "text": "GPT-4o517K1.63s93.8%$6,418.20",
+    "x": 78,
+    "y": 455.9,
+    "w": 1164,
+    "h": 47.4
+   },
+   {
+    "kind": "tr",
+    "text": "Claude 3.5406K1.39s92.4%$4,197.53",
+    "x": 78,
+    "y": 503.3,
+    "w": 1164,
+    "h": 47.4
+   },
+   {
+    "kind": "tr",
+    "text": "Llama 3.1308K1.22s91.1%$1,729.94",
+    "x": 78,
+    "y": 550.7,
+    "w": 1164,
+    "h": 46.9
+   },
+   {
+    "kind": "chart",
+    "text": "Sample chart: daily cost by model over the last 7 days, highest on Sunday",
+    "x": 98,
+    "y": 132.4,
+    "w": 730,
+    "h": 176
+   }
+  ]
+ }
+}

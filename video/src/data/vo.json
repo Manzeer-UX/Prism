@@ -1,0 +1,212 @@
+{
+ "voice": "af_heart",
+ "model": "Kokoro-82M v1.0 (Apache-2.0)",
+ "sampleRate": 24000,
+ "lines": [
+  {
+   "id": "s1-ai",
+   "text": "AI is transforming enterprise operations.",
+   "duration": 2.91
+  },
+  {
+   "id": "s1-models",
+   "text": "Models are thinking.",
+   "duration": 1.24
+  },
+  {
+   "id": "s1-agents",
+   "text": "Agents are acting.",
+   "duration": 1.18
+  },
+  {
+   "id": "s1-decisions",
+   "text": "Decisions are accelerating.",
+   "duration": 1.69
+  },
+  {
+   "id": "s1-question",
+   "text": "But one question remains.",
+   "duration": 1.58
+  },
+  {
+   "id": "s1-built",
+   "text": "You built the AI.",
+   "duration": 1.24
+  },
+  {
+   "id": "s1-governing",
+   "text": "Who's governing it?",
+   "duration": 1.08
+  },
+  {
+   "id": "s2-chain",
+   "text": "Behind every AI response is a chain of interactions.",
+   "duration": 3.58
+  },
+  {
+   "id": "s2-together",
+   "text": "Models, agents, tools and data, working together.",
+   "duration": 3.32
+  },
+  {
+   "id": "s2-trace",
+   "text": "But when something goes wrong, can you trace what happened?",
+   "duration": 2.97
+  },
+  {
+   "id": "s3-answers",
+   "text": "Inconsistent answers.",
+   "duration": 1.43
+  },
+  {
+   "id": "s3-failures",
+   "text": "Hidden failures.",
+   "duration": 0.98
+  },
+  {
+   "id": "s3-costs",
+   "text": "Rising costs.",
+   "duration": 1.125
+  },
+  {
+   "id": "s3-risks",
+   "text": "And growing governance risks.",
+   "duration": 1.62
+  },
+  {
+   "id": "s3-control",
+   "text": "When AI becomes harder to understand, it becomes harder to control.",
+   "duration": 4.23
+  },
+  {
+   "id": "s4-intro",
+   "text": "Introducing Prism AI.",
+   "duration": 1.83
+  },
+  {
+   "id": "s4-platform",
+   "text": "An enterprise AI governance platform, by Moogle Labs.",
+   "duration": 3.66
+  },
+  {
+   "id": "s4-focus",
+   "text": "Bringing your AI ecosystem into focus.",
+   "duration": 2.64
+  },
+  {
+   "id": "s4-observe",
+   "text": "Observe.",
+   "duration": 0.735
+  },
+  {
+   "id": "s4-evaluate",
+   "text": "Evaluate.",
+   "duration": 0.74
+  },
+  {
+   "id": "s4-govern",
+   "text": "Govern.",
+   "duration": 0.62
+  },
+  {
+   "id": "s5-overview-1",
+   "text": "See your AI operations in one unified view.",
+   "duration": 2.96
+  },
+  {
+   "id": "s5-overview-2",
+   "text": "Monitor activity, performance, errors and usage.",
+   "duration": 3.06
+  },
+  {
+   "id": "s5-traces-1",
+   "text": "Follow the complete execution path.",
+   "duration": 1.94
+  },
+  {
+   "id": "s5-traces-2",
+   "text": "Understand every model interaction, agent step and tool call.",
+   "duration": 3.77
+  },
+  {
+   "id": "s5-prompts-1",
+   "text": "Manage prompts with greater control.",
+   "duration": 1.86
+  },
+  {
+   "id": "s5-prompts-2",
+   "text": "Track versions, understand changes, and connect them to performance.",
+   "duration": 4.13
+  },
+  {
+   "id": "s5-evals-1",
+   "text": "Measure the quality of AI responses.",
+   "duration": 2.13
+  },
+  {
+   "id": "s5-evals-2",
+   "text": "Identify issues and evaluate performance before they affect users.",
+   "duration": 4.1
+  },
+  {
+   "id": "s5-analytics-1",
+   "text": "Understand usage, speed and cost.",
+   "duration": 2.3
+  },
+  {
+   "id": "s5-analytics-2",
+   "text": "Turn operational data into clearer decisions and stronger oversight.",
+   "duration": 4.35
+  },
+  {
+   "id": "s6-nine",
+   "text": "Nine connected capabilities.",
+   "duration": 1.81
+  },
+  {
+   "id": "s6-range",
+   "text": "From observability and evaluation, to cost intelligence, security and governance.",
+   "duration": 5.05
+  },
+  {
+   "id": "s6-one",
+   "text": "One unified platform for enterprise AI.",
+   "duration": 2.7
+  },
+  {
+   "id": "s7-faster",
+   "text": "Find issues faster.",
+   "duration": 1.31
+  },
+  {
+   "id": "s7-reliability",
+   "text": "Improve reliability.",
+   "duration": 1.34
+  },
+  {
+   "id": "s7-costs",
+   "text": "Understand costs.",
+   "duration": 1.25
+  },
+  {
+   "id": "s7-confidence",
+   "text": "Scale with greater confidence.",
+   "duration": 1.76
+  },
+  {
+   "id": "s8-name",
+   "text": "Prism AI.",
+   "duration": 1.06
+  },
+  {
+   "id": "s8-chain",
+   "text": "See the chain.",
+   "duration": 0.89
+  },
+  {
+   "id": "s8-outcome",
+   "text": "Govern the outcome.",
+   "duration": 1.15
+  }
+ ]
+}
