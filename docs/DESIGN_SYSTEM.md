@@ -99,7 +99,7 @@ Two weights (400, 500). No uppercase tracked labels, no gradient text. Fonts are
 |---|---|---|
 | Spacing | Hero left a dead band at 1024 px when stacked | Split layout from `lg`; labels collapse to numbers until `xl` |
 | Color | Spotlight wash was brand blue | Neutral ink at 4 % |
-| Icons | Source pairs the wordmark with a sparkle | Flat prism glyph in one colour |
+| Icons | Source pairs the wordmark with a sparkle | Same sparkle + extra-bold wordmark; navy on light, light foreground on dark |
 | Copy | Trailing period on a short CTA line | Removed; all headings and labels end without periods |
 | Type | Source uses uppercase tracked headings | Sentence case throughout; two weights |
 | Layout | Source presents capabilities as an image | Rebuilt as real text with a sticky dial — searchable, accessible |

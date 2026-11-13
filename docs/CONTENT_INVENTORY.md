@@ -62,7 +62,7 @@ The brief allowed several sections only if the source supports them. These were 
 | Descriptions for "Built for enterprise scale" items | Titles only on the source | Shown as titles only. |
 | "Model system performance · Live" chart | Decorative bars with no values or labels | **Omitted** — it carries no information and "Live" would imply real data. |
 | Official logo files | Seasia logo at `https://www.groupseasia.com/assets/seasia.logo-BhiTrpKE.svg` | Not bundled (not downloaded). The footer shows the PRISM AI wordmark. To add the official Seasia mark, place it at `src/assets/seasia-logo.svg` and render it next to the wordmark in `Footer.tsx`. |
-| PRISM icon | Source uses a sparkle glyph next to "PRISM AI" | Replaced by a flat prism glyph (`ui/PrismMark.tsx`) — a design decision, not a brand change. Revert if the sparkle is a required brand asset. |
+| PRISM icon | Source uses a sparkle glyph next to "PRISM AI" | Matched: Lucide sparkles glyph in brand blue + extra-bold "PRISM AI" in brand navy (`ui/PrismMark.tsx`). On dark surfaces the wordmark switches to the light foreground for contrast (`--logo-ink` / `--logo-mark` in `index.css`). The favicon uses the same sparkle. |
 | Legal footer (copyright, privacy, contact) | Not present on the source page | Copyright line added at the client's request. The holder name "Seasia Group of Companies" comes from the source logo's alt text (the page metadata names "Seasia Infotech") — **confirm the legal entity name** before launch. No privacy or contact links were added. |
 
 ## 5. Editorial labels written for this redesign
