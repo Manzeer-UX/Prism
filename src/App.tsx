@@ -1,15 +1,23 @@
 import { MotionConfig } from 'motion/react'
 import { Capabilities } from './sections/Capabilities'
+import { Challenge } from './sections/Challenge'
 import { ClosingCta } from './sections/ClosingCta'
 import { EnterpriseScale } from './sections/EnterpriseScale'
 import { Footer } from './sections/Footer'
+import { GateWay } from './sections/GateWay'
+import { Governance } from './sections/Governance'
 import { Header } from './sections/Header'
 import { Hero } from './sections/Hero'
+import { Introducing } from './sections/Introducing'
 import { Platform } from './sections/Platform'
-import { Statement } from './sections/Statement'
 import { Value } from './sections/Value'
 import { WhyPrism } from './sections/WhyPrism'
 
+/*
+  Narrative order from the brief: attention → problem → positioning →
+  product experience → differentiation → capabilities → governance →
+  agentic control → business value → enterprise trust → conversion.
+*/
 export default function App() {
   return (
     <MotionConfig reducedMotion="user">
@@ -22,10 +30,13 @@ export default function App() {
       <Header />
       <main id="main" tabIndex={-1} className="outline-none">
         <Hero />
-        <Statement />
+        <Challenge />
+        <Introducing />
         <Platform />
         <WhyPrism />
         <Capabilities />
+        <Governance />
+        <GateWay />
         <Value />
         <EnterpriseScale />
         <ClosingCta />

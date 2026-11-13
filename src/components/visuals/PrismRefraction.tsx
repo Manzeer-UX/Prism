@@ -1,20 +1,20 @@
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from 'motion/react'
 import { useRef, useState, type PointerEvent } from 'react'
-import { capabilities, product } from '../../content/prism'
+import { capabilities, hero } from '../../content/prism'
 import { useFinePointer, useOnScreen } from '../../lib/hooks'
 import { EASE } from '../../lib/motion'
 
 /*
-  Hero diagram. The four things PRISM governs (LLMs, agents, prompts, data)
-  merge into one beam, pass through the prism and resolve into the nine core
-  capabilities named on the product page. Geometry is in viewBox units and the
+  Hero diagram. Signals from the AI ecosystem (LLMs, agents, prompts, tools,
+  data) merge into one beam, pass through the prism — the intelligence control
+  plane — and emerge as nine distinct governance capability streams. Geometry is in viewBox units and the
   HTML label layer is positioned from the same numbers.
 */
 
 const W = 900
 const H = 640
 
-const INPUT_Y = [214, 282, 358, 426]
+const INPUT_Y = [196, 260, 324, 388, 452]
 const JUNCTION = { x: 262, y: 324 }
 
 const A = { x: 430, y: 168 } // apex
@@ -27,9 +27,9 @@ const onRightFace = (t: number) => ({ x: A.x + (C.x - A.x) * t, y: A.y + (C.y - 
 
 const ENTRY = onLeftFace(0.47)
 const EXITS = capabilities.map((_, i) => onRightFace(0.4 + i * 0.01625))
-const BAND_END_X = 700
+const BAND_END_X = 668
 const BAND_Y = capabilities.map((_, i) => 108 + i * 53)
-const LABEL_X = 714
+const LABEL_X = 682
 
 const pct = (v: number, of: number) => `${(v / of) * 100}%`
 
@@ -88,8 +88,8 @@ export function PrismRefraction() {
       onPointerLeave={handleLeave}
     >
       <figcaption id="prism-figure-caption" className="sr-only">
-        Diagram: LLMs, agents, prompts and data from your AI ecosystem pass through PRISM AI and are resolved into nine
-        core governance capabilities.
+        Diagram: LLMs, agents, prompts, tools and data from your AI ecosystem converge into PRISM AI, the intelligence
+        control plane, and emerge as nine governance capabilities.
       </figcaption>
 
       <motion.div
@@ -233,14 +233,14 @@ export function PrismRefraction() {
 
         {/* Label layer — real text and links, positioned from the SVG geometry */}
         <motion.p
-          className="absolute hidden -translate-y-full pb-6 text-meta text-fg-3 sm:block"
+          className="absolute hidden -translate-y-full pb-9 text-meta text-fg-3 sm:block"
           style={{ left: 0, top: pct(INPUT_Y[0], H) }}
           {...fade(0.4)}
         >
-          Your AI ecosystem
+          {hero.diagram.inputsLabel}
         </motion.p>
-        <ul className="m-0 list-none p-0" aria-label="Governed by PRISM AI">
-          {product.governed.map((g, i) => (
+        <ul className="m-0 list-none p-0" aria-label={hero.diagram.inputsLabel}>
+          {hero.diagram.inputs.map((g, i) => (
             <motion.li
               key={g}
               className="absolute -translate-y-[calc(100%+6px)] text-meta text-fg-2"
@@ -252,23 +252,26 @@ export function PrismRefraction() {
           ))}
         </ul>
 
-        <motion.p
+        <motion.div
           aria-hidden="true"
-          className="absolute -translate-x-1/2 pt-5 text-meta text-fg-3"
+          className="absolute flex -translate-x-1/2 flex-col items-center gap-1.5 pt-5 text-center whitespace-nowrap"
           style={{ left: pct((B.x + C.x) / 2, W), top: pct(B.y, H) }}
           {...fade(1)}
         >
-          {product.name}
-        </motion.p>
+          <span className="text-[0.8125rem] font-semibold tracking-[0.02em] text-fg">{hero.diagram.centreLabel}</span>
+          <span className="text-meta text-[0.6875rem] tracking-[0.08em] text-fg-3 uppercase sm:text-[0.75rem]">
+            {hero.diagram.centreDescriptor}
+          </span>
+        </motion.div>
 
         <motion.p
           className="absolute hidden -translate-y-full pb-4 text-meta text-fg-3 sm:block lg:hidden xl:block"
-          style={{ left: pct(LABEL_X, W), top: pct(BAND_Y[0] - 22, H) }}
+          style={{ left: pct(LABEL_X, W), top: pct(BAND_Y[0] - 22, H), width: pct(W - LABEL_X + 24, W) }}
           {...fade(1.9)}
         >
-          Core capabilities
+          {hero.diagram.outputsLabel}
         </motion.p>
-        <ol className="m-0 list-none p-0" aria-label="PRISM AI core capabilities">
+        <ol className="m-0 list-none p-0" aria-label={hero.diagram.outputsLabel}>
           {capabilities.map((c, i) => (
             <motion.li
               key={c.id}
@@ -284,7 +287,7 @@ export function PrismRefraction() {
               </span>
               <a
                 href={`#cap-${c.id}`}
-                className="group hidden min-h-6 items-center gap-2 text-[0.8125rem] leading-none text-fg-2 transition-colors duration-150 hover:text-fg sm:flex"
+                className="group hidden min-h-6 items-center gap-2 text-[0.75rem] leading-none text-fg-2 transition-colors duration-150 hover:text-fg sm:flex xl:text-[0.8125rem]"
                 onPointerEnter={() => setActive(i)}
                 onPointerLeave={() => setActive(null)}
                 onFocus={() => setActive(i)}
@@ -302,6 +305,13 @@ export function PrismRefraction() {
           ))}
         </ol>
       </motion.div>
+
+      <motion.p
+        className="mt-6 max-w-[34rem] text-[0.875rem] text-fg-2 sm:mx-auto sm:mt-10 sm:text-center"
+        {...fade(2.1)}
+      >
+        {hero.diagram.closingLine}
+      </motion.p>
     </figure>
   )
 }

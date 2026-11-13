@@ -99,7 +99,7 @@ Two weights (400, 500). No uppercase tracked labels, no gradient text. Fonts are
 |---|---|---|
 | Spacing | Hero left a dead band at 1024 px when stacked | Split layout from `lg`; labels collapse to numbers until `xl` |
 | Color | Spotlight wash was brand blue | Neutral ink at 4 % |
-| Icons | Source pairs the wordmark with a sparkle | Same sparkle + extra-bold wordmark; navy on light, light foreground on dark |
+| Icons | Brand supplied a new PrismAI lock-up (four-facet prism mark + wordmark) | Inline SVG in `ui/PrismMark`; "Prism" is navy on light and the light foreground on dark, "AI" stays #1677FF; the mark is reused for the favicon and console rail |
 | Copy | Trailing period on a short CTA line | Removed; all headings and labels end without periods |
 | Type | Source uses uppercase tracked headings | Sentence case throughout; two weights |
 | Layout | Source presents capabilities as an image | Rebuilt as real text with a sticky dial — searchable, accessible |

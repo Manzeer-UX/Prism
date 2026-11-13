@@ -1,12 +1,12 @@
-import { Blocks, FileCheck, Globe, Layers, ShieldCheck, type LucideIcon } from 'lucide-react'
+import { Blocks, Cloud, FileCheck, Layers, ShieldCheck, type LucideIcon } from 'lucide-react'
 import { SpotlightCard } from '../components/reactbits/SpotlightCard'
 import { BandMarker } from '../components/ui/BandMarker'
 import { Reveal } from '../components/ui/Reveal'
-import { capabilities, enterpriseScale, pillars } from '../content/prism'
+import { capabilities, enterprise, pillars } from '../content/prism'
 
-const ICONS: Record<(typeof enterpriseScale)[number]['id'], LucideIcon> = {
+const ICONS: Record<(typeof enterprise.attributes)[number]['id'], LucideIcon> = {
   scalability: Layers,
-  deployment: Globe,
+  deployment: Cloud,
   security: ShieldCheck,
   audit: FileCheck,
   apis: Blocks,
@@ -23,13 +23,12 @@ function stripBorders(i: number) {
 
 const security = capabilities.find((c) => c.id === 'security')!
 const securityBand = capabilities.indexOf(security) + 1
-const secure = pillars.find((p) => p.id === 'secure')!
-const governance = pillars.find((p) => p.id === 'governance')!
+const related = ['governance', 'security'].map((id) => pillars.find((p) => p.id === id)!)
 
 /**
- * Trust, security and governance. Only what the source states: the five
- * "Built for enterprise scale" attributes, capability 09 and the two related
- * pillars. No certifications or compliance guarantees are implied.
+ * 10 · Enterprise readiness. The five enterprise attributes, then capability
+ * 09 as a control ledger. Integration logos are deliberately absent until the
+ * integrations are confirmed (see the brief), and no certifications are implied.
  */
 export function EnterpriseScale() {
   return (
@@ -38,14 +37,21 @@ export function EnterpriseScale() {
         <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
             <Reveal>
-              <p className="text-meta text-fg-3">Trust & security</p>
+              <p className="text-meta text-fg-3">{enterprise.eyebrow}</p>
             </Reveal>
             <Reveal delay={0.05} blur>
-              <h2 id="enterprise-title" className="mt-4 text-display-l text-fg">
-                Built for enterprise scale
+              <h2 id="enterprise-title" className="mt-4 max-w-[20ch] text-display-l text-fg">
+                {enterprise.title}
               </h2>
             </Reveal>
           </div>
+          <Reveal delay={0.1} className="space-y-4 lg:col-span-5 lg:self-end lg:pb-1">
+            {enterprise.body.map((p, i) => (
+              <p key={i} className={i === 0 ? 'text-lead text-fg' : 'text-fg-2'}>
+                {p}
+              </p>
+            ))}
+          </Reveal>
         </div>
 
         {/* Five attributes — one ruled strip, not five cards */}
@@ -55,17 +61,20 @@ export function EnterpriseScale() {
             className="rounded-2xl border border-line-strong bg-surface"
           >
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
-              {enterpriseScale.map((item, i) => {
+              {enterprise.attributes.map((item, i) => {
                 const Icon = ICONS[item.id]
                 return (
                   <li
                     key={item.id}
-                    className={`flex items-center gap-4 border-line p-5 sm:flex-col sm:items-start sm:gap-10 sm:p-6 lg:p-7 ${stripBorders(i)}`}
+                    className={`flex gap-4 border-line p-5 sm:flex-col sm:gap-8 sm:p-6 lg:p-7 ${stripBorders(i)}`}
                   >
-                    <Icon size={20} strokeWidth={1.5} className="text-fg-2" aria-hidden="true" />
-                    <span className="font-display text-[1.125rem] leading-tight font-medium tracking-[-0.01em] text-fg md:text-[1.25rem]">
-                      {item.title}
-                    </span>
+                    <Icon size={20} strokeWidth={1.5} className="mt-0.5 text-fg-2 sm:mt-0" aria-hidden="true" />
+                    <div>
+                      <h3 className="font-display text-[1.125rem] leading-tight font-medium tracking-[-0.01em] text-fg md:text-[1.25rem]">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-[0.875rem] text-fg-2">{item.body}</p>
+                    </div>
                   </li>
                 )
               })}
@@ -82,10 +91,12 @@ export function EnterpriseScale() {
                 <span className="text-meta text-fg-3">{security.number}</span>
               </div>
               <h3 className="mt-4 text-display-m text-fg">{security.title}</h3>
+              <p className="mt-3 text-lead text-fg">{security.headline}</p>
+              <p className="mt-2 text-fg-2">{security.intro}</p>
             </Reveal>
             <Reveal delay={0.08}>
-              <dl className="mt-8 space-y-6">
-                {[secure, governance].map((p) => (
+              <dl className="mt-8 space-y-6 border-t border-line pt-6">
+                {related.map((p) => (
                   <div key={p.id}>
                     <dt className="text-[0.9375rem] font-medium text-fg">{p.title}</dt>
                     <dd className="mt-1 text-fg-2">{p.body}</dd>

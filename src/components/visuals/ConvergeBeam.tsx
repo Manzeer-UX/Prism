@@ -9,7 +9,7 @@ import {
   type MotionValue,
 } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
-import { capabilities, product } from '../../content/prism'
+import { brand, capabilities } from '../../content/prism'
 import { useOnScreen } from '../../lib/hooks'
 
 /*
@@ -196,7 +196,7 @@ export function ConvergeBeam() {
         className="absolute -translate-x-1/2 pt-3 text-meta text-fg-3"
         style={{ left: `${(A.x / W) * 100}%`, top: `${(B.y / H) * 100}%`, opacity: labelOpacity }}
       >
-        {product.name}
+        {brand.name}
       </motion.p>
     </div>
   )

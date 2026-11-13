@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { BandMarker } from '../components/ui/BandMarker'
 import { Reveal } from '../components/ui/Reveal'
 import { SpectrumRing } from '../components/visuals/SpectrumRing'
-import { capabilities } from '../content/prism'
+import { capabilities, capabilitiesIntro } from '../content/prism'
 import { useActiveId } from '../lib/hooks'
 
 const IDS = capabilities.map((c) => `cap-${c.id}`)
@@ -36,19 +36,17 @@ export function Capabilities() {
         <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
             <Reveal>
-              <p className="text-meta text-fg-3">Platform capabilities</p>
+              <p className="text-meta text-fg-3">{capabilitiesIntro.eyebrow}</p>
             </Reveal>
             <Reveal delay={0.05} blur>
-              <h2 id="capabilities-title" className="mt-4 text-display-l text-fg">
-                Core capabilities
+              <h2 id="capabilities-title" className="mt-4 max-w-[20ch] text-display-l text-fg">
+                {capabilitiesIntro.title}
               </h2>
             </Reveal>
           </div>
-          <Reveal delay={0.1} className="lg:col-span-5 lg:self-end">
-            <p className="text-lead text-fg-2">
-              Nine capability groups, from tracing and prompt control to evaluation, cost and security, across LLMs,
-              agents, prompts, and data.
-            </p>
+          <Reveal delay={0.1} className="space-y-3 lg:col-span-5 lg:self-end lg:pb-1">
+            <p className="text-lead text-fg">{capabilitiesIntro.lead}</p>
+            <p className="text-fg-2">{capabilitiesIntro.body}</p>
           </Reveal>
         </div>
 
@@ -97,18 +95,25 @@ export function Capabilities() {
                   className="scroll-mt-28 border-t border-line py-10 outline-none md:py-14 lg:min-h-[26rem]"
                 >
                   <Reveal>
-                    <div className="flex items-center gap-3">
-                      <BandMarker band={i + 1} />
-                      <span className="text-meta text-fg-3">{c.number}</span>
-                    </div>
                     <h3
                       id={`cap-${c.id}-title`}
-                      className={`mt-4 text-display-m transition-colors duration-300 ${
+                      className="flex items-center gap-3 text-meta tracking-[0.06em] text-fg-2 uppercase"
+                    >
+                      <BandMarker band={i + 1} />
+                      <span className="text-fg-3 tabular-nums">{c.number}</span>
+                      <span aria-hidden="true" className="text-fg-3">
+                        —
+                      </span>
+                      {c.title}
+                    </h3>
+                    <p
+                      className={`mt-5 max-w-[24ch] text-display-m transition-colors duration-300 ${
                         on ? 'text-fg' : 'text-fg lg:text-fg-2'
                       }`}
                     >
-                      {c.title}
-                    </h3>
+                      {c.headline}
+                    </p>
+                    <p className="mt-4 max-w-[36rem] text-fg-2">{c.intro}</p>
                   </Reveal>
                   <ul className="mt-8 grid gap-x-8 sm:grid-cols-2">
                     {c.items.map((item, j) => (

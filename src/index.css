@@ -74,7 +74,7 @@
   --btn-bg-hover: #ffffff;
   --btn-fg: #0a0e18;
   --logo-ink: #eef0f5;
-  --logo-mark: #4c8dff;
+  --logo-outline: #07143d;
 
   /* Capability spectrum on dark surfaces: violet → blue → teal → green */
   --band-1: oklch(0.7 0.16 290);
@@ -105,8 +105,8 @@
   --btn-bg: #0057d9;
   --btn-bg-hover: #0047b3;
   --btn-fg: #ffffff;
-  --logo-ink: #0d2d6c;
-  --logo-mark: #0057d9;
+  --logo-ink: #07143d;
+  --logo-outline: #07143d;
 
   /* Capability spectrum on light surfaces (darker for contrast) */
   --band-1: oklch(0.5 0.19 290);

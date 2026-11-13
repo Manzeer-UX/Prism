@@ -1,56 +1,38 @@
 import { AnimatePresence, motion } from 'motion/react'
-import { Activity, ClipboardCheck, FileText, LayoutDashboard, type LucideIcon } from 'lucide-react'
+import { Activity, BarChart3, ClipboardCheck, FileText, LayoutDashboard, type LucideIcon } from 'lucide-react'
 import { useRef, useState, type KeyboardEvent } from 'react'
-import { capabilities, editorial } from '../../content/prism'
+import { capabilities, platform, type ConsoleTab } from '../../content/prism'
 import { DURATION, EASE } from '../../lib/motion'
 import { BandMarker } from '../ui/BandMarker'
 import { PrismMark } from '../ui/PrismMark'
+import { AnalyticsView } from './AnalyticsView'
 import { EvaluationsView } from './EvaluationsView'
 import { OverviewView } from './OverviewView'
 import { PromptsView } from './PromptsView'
 import { TracesView } from './TracesView'
 
-type ViewId = 'overview' | 'traces' | 'prompts' | 'evaluations'
+type ViewId = ConsoleTab['id']
 
-type View = {
-  id: ViewId
-  label: string
+type ViewMeta = {
   icon: LucideIcon
   /** Capability ids from content/prism.ts that this view illustrates */
   illustrates: string[]
   render: () => React.ReactNode
 }
 
-const VIEWS: View[] = [
-  {
-    id: 'overview',
-    label: 'Overview',
-    icon: LayoutDashboard,
-    illustrates: ['observability', 'analytics', 'cost'],
-    render: () => <OverviewView />,
-  },
-  {
-    id: 'traces',
-    label: 'Traces',
+const META: Record<ViewId, ViewMeta> = {
+  overview: { icon: LayoutDashboard, illustrates: ['observability', 'analytics'], render: () => <OverviewView /> },
+  traces: {
     icon: Activity,
     illustrates: ['observability', 'agent-monitoring', 'rag-governance'],
     render: () => <TracesView />,
   },
-  {
-    id: 'prompts',
-    label: 'Prompts',
-    icon: FileText,
-    illustrates: ['prompt-governance'],
-    render: () => <PromptsView />,
-  },
-  {
-    id: 'evaluations',
-    label: 'Evaluations',
-    icon: ClipboardCheck,
-    illustrates: ['evaluation', 'datasets'],
-    render: () => <EvaluationsView />,
-  },
-]
+  prompts: { icon: FileText, illustrates: ['prompt-governance'], render: () => <PromptsView /> },
+  evaluations: { icon: ClipboardCheck, illustrates: ['evaluation', 'datasets'], render: () => <EvaluationsView /> },
+  analytics: { icon: BarChart3, illustrates: ['analytics', 'cost'], render: () => <AnalyticsView /> },
+}
+
+const VIEWS = platform.tabs.map((t) => ({ ...t, ...META[t.id] }))
 
 const capIndex = new Map(capabilities.map((c, i) => [c.id, { cap: c, band: i + 1 }]))
 
@@ -75,12 +57,12 @@ export function ConsolePreview() {
   return (
     <div>
       {/* Tabs */}
-      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <div className="-mx-5 [scrollbar-width:none] overflow-x-auto px-5 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden">
         <div
           role="tablist"
           aria-label="Console views"
           onKeyDown={onKeyDown}
-          className="inline-flex w-full rounded-xl border border-line bg-surface p-1 md:w-auto"
+          className="inline-flex rounded-xl border border-line bg-surface p-1"
         >
           {VIEWS.map((v, i) => {
             const selected = v.id === active
@@ -96,7 +78,7 @@ export function ConsolePreview() {
                 aria-controls="console-panel"
                 tabIndex={selected ? 0 : -1}
                 onClick={() => setActive(v.id)}
-                className={`relative h-10 flex-1 rounded-lg px-3 text-[0.8125rem] font-medium transition-colors duration-150 md:flex-none md:px-4 md:text-[0.875rem] ${
+                className={`relative h-10 flex-none rounded-lg px-3 text-[0.8125rem] font-medium whitespace-nowrap transition-colors duration-150 md:px-4 md:text-[0.875rem] ${
                   selected ? 'text-fg' : 'text-fg-2 hover:text-fg'
                 }`}
               >
@@ -107,13 +89,25 @@ export function ConsolePreview() {
                     transition={{ duration: DURATION.menu, ease: EASE }}
                   />
                 )}
-                <span className="relative">{v.label}</span>
+                <span className="relative">
+                  <span className="mr-1.5 font-mono text-[0.6875rem] text-fg-3 tabular-nums" aria-hidden="true">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  {v.label}
+                </span>
               </button>
             )
           })}
         </div>
+      </div>
 
-        <p className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-meta text-fg-3" aria-live="polite">
+      {/* What the selected view is for */}
+      <div className="mt-6 grid gap-4 md:grid-cols-12 md:items-end md:gap-8" aria-live="polite">
+        <div className="md:col-span-7">
+          <p className="text-title text-fg">{view.headline}</p>
+          <p className="mt-2 max-w-[40rem] text-fg-2">{view.body}</p>
+        </div>
+        <p className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-meta text-fg-3 md:col-span-5 md:justify-end">
           <span>Illustrates</span>
           {view.illustrates.map((id) => {
             const entry = capIndex.get(id)
@@ -141,7 +135,7 @@ export function ConsolePreview() {
             className="hidden w-14 shrink-0 flex-col items-center gap-2 bg-brand-navy py-4 text-white md:flex"
           >
             <span className="mb-3 flex size-9 items-center justify-center rounded-lg bg-white/10">
-              <PrismMark size={18} />
+              <PrismMark size={22} />
             </span>
             {VIEWS.map((v) => {
               const Icon = v.icon
@@ -193,8 +187,6 @@ export function ConsolePreview() {
           </div>
         </div>
       </div>
-
-      <p className="mt-4 max-w-[46rem] text-[0.8125rem] text-fg-3">{editorial.consoleNote}</p>
     </div>
   )
 }

@@ -3,11 +3,11 @@ import { Menu, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { ButtonLink } from '../components/ui/ButtonLink'
 import { PrismWordmark } from '../components/ui/PrismMark'
-import { editorial, links } from '../content/prism'
+import { brand, cta, links, nav } from '../content/prism'
 import { useActiveId } from '../lib/hooks'
 import { DURATION, EASE } from '../lib/motion'
 
-const NAV = editorial.nav
+const NAV = nav
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -81,9 +81,11 @@ export function Header() {
       >
         <div className="shell flex h-16 items-center justify-between gap-6 md:h-[4.5rem]">
           <a href="#top" className="flex items-center gap-3 text-fg" aria-label="PRISM AI, back to top">
-            <PrismWordmark />
-            <span className="hidden h-4 w-px bg-line-strong sm:block" aria-hidden="true" />
-            <span className="hidden text-[0.8125rem] text-fg-3 sm:block">by Seasia</span>
+            <PrismWordmark className="h-9 md:h-10" />
+            <span className="hidden h-4 w-px bg-line-strong sm:block lg:hidden xl:block" aria-hidden="true" />
+            <span className="hidden text-[0.8125rem] whitespace-nowrap text-fg-3 sm:block lg:hidden xl:block">
+              {brand.byline}
+            </span>
           </a>
 
           <nav aria-label="Primary" className="hidden lg:block">
@@ -95,7 +97,7 @@ export function Header() {
                     <a
                       href={`#${item.id}`}
                       aria-current={current ? 'true' : undefined}
-                      className={`relative inline-flex h-9 items-center rounded-lg px-3 text-[0.875rem] transition-colors duration-150 ${
+                      className={`relative inline-flex h-9 items-center rounded-lg px-2.5 text-[0.875rem] whitespace-nowrap transition-colors duration-150 xl:px-3 ${
                         current ? 'text-fg' : 'text-fg-2 hover:text-fg'
                       }`}
                     >
@@ -103,7 +105,7 @@ export function Header() {
                       {current && (
                         <motion.span
                           layoutId="nav-current"
-                          className="absolute inset-x-3 -bottom-px h-px bg-fg"
+                          className="absolute inset-x-2.5 -bottom-px h-px bg-fg xl:inset-x-3"
                           transition={{ duration: DURATION.menu, ease: EASE }}
                         />
                       )}
@@ -117,7 +119,7 @@ export function Header() {
           <div className="flex items-center gap-2">
             <div className="hidden sm:block">
               <ButtonLink href={links.scheduleMeeting} size="md">
-                Schedule a meeting
+                {cta.scheduleMeeting}
               </ButtonLink>
             </div>
             <button
@@ -168,11 +170,14 @@ export function Header() {
               </ul>
               <div className="mt-auto flex flex-col gap-3 pt-10">
                 <ButtonLink href={links.scheduleMeeting} arrow="external">
-                  Schedule a meeting
+                  {cta.scheduleMeeting}
                 </ButtonLink>
-                <ButtonLink href={links.partners} variant="secondary">
-                  Partners
+                <ButtonLink href={links.demo} variant="secondary" arrow="forward">
+                  {cta.watchDemo}
                 </ButtonLink>
+                <p className="pt-3 text-center text-meta text-fg-3">
+                  {brand.name} {brand.byline} · {brand.parent}
+                </p>
               </div>
             </nav>
           </motion.div>

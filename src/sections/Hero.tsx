@@ -1,9 +1,9 @@
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
-import { ArrowDown, ChevronRight } from 'lucide-react'
+import { ArrowDown } from 'lucide-react'
 import { BlurText } from '../components/reactbits/BlurText'
 import { ButtonLink } from '../components/ui/ButtonLink'
 import { PrismRefraction } from '../components/visuals/PrismRefraction'
-import { editorial, links, product } from '../content/prism'
+import { brand, cta, hero, links } from '../content/prism'
 import { DURATION, EASE } from '../lib/motion'
 
 export function Hero() {
@@ -28,32 +28,41 @@ export function Hero() {
         className="absolute inset-0 -z-10 grid-lines [mask-image:radial-gradient(ellipse_70%_60%_at_65%_45%,#000_30%,transparent_80%)] opacity-70"
       />
 
-      <div className="shell grid min-h-[100svh] grid-cols-1 content-center gap-y-12 pt-28 pb-24 md:pt-32 lg:grid-cols-12 lg:gap-x-8 lg:pt-28 lg:pb-28">
+      <div className="shell grid min-h-[100svh] grid-cols-1 content-center gap-y-12 pt-28 pb-28 md:pt-32 lg:grid-cols-12 lg:gap-x-8 lg:pt-28 lg:pb-32">
         <div className="relative z-10 lg:col-span-6 lg:self-center xl:col-span-5">
           <motion.p className="flex flex-wrap items-center gap-x-2 text-meta text-fg-3" {...enter(0)}>
-            <span className="text-fg-2">{product.name}</span>
+            <span className="text-fg-2">{brand.name}</span>
             <span aria-hidden="true">—</span>
-            <span>{product.descriptor}</span>
+            <span>{brand.positioning}</span>
           </motion.p>
 
           <BlurText
             as="h1"
             id="hero-title"
-            text={product.tagline}
+            text={hero.title}
             startDelay={0.1}
-            className="mt-6 max-w-[14ch] text-display-xl text-fg"
+            className="mt-6 max-w-[15ch] text-display-xl text-fg"
           />
 
-          <motion.p className="mt-6 max-w-[33rem] text-lead text-fg-2" {...enter(0.45)}>
-            {product.summary}
+          <motion.div className="mt-6 max-w-[33rem] space-y-2 text-lead" {...enter(0.45)}>
+            <p className="text-fg">{hero.lines[0]}</p>
+            <p className="text-fg-2">{hero.lines[1]}</p>
+          </motion.div>
+
+          <motion.p
+            className="mt-8 flex items-center gap-3 font-mono text-[0.8125rem] font-medium tracking-[0.08em] text-fg uppercase"
+            {...enter(0.5)}
+          >
+            <span className="h-px w-8 bg-accent" aria-hidden="true" />
+            {brand.signature}
           </motion.p>
 
-          <motion.div className="mt-10 flex flex-wrap items-center gap-3" {...enter(0.55)}>
-            <ButtonLink href={links.scheduleMeeting} arrow="external">
-              Schedule a meeting
+          <motion.div className="mt-8 flex flex-wrap items-center gap-3" {...enter(0.55)}>
+            <ButtonLink href="#platform" arrow="forward">
+              {cta.explorePlatform}
             </ButtonLink>
-            <ButtonLink href="#capabilities" variant="secondary" arrow="forward">
-              {editorial.exploreCapabilities}
+            <ButtonLink href={links.demo} variant="secondary" arrow="forward">
+              {cta.watchDemo}
             </ButtonLink>
           </motion.div>
         </div>
@@ -65,27 +74,9 @@ export function Hero() {
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 shell pb-6">
         <div className="flex items-end justify-between gap-6 border-t border-line pt-5">
-          <nav aria-label="Breadcrumb" className="pointer-events-auto">
-            <ol className="flex flex-wrap items-center gap-1.5 text-meta text-fg-3">
-              <li>Enterprise AI</li>
-              <li aria-hidden="true">
-                <ChevronRight size={12} strokeWidth={1.5} />
-              </li>
-              <li>
-                <a href={links.sdlcTooling} className="transition-colors duration-150 hover:text-fg">
-                  SDLC Tooling
-                </a>
-              </li>
-              <li aria-hidden="true">
-                <ChevronRight size={12} strokeWidth={1.5} />
-              </li>
-              <li aria-current="page" className="text-fg-2">
-                {product.name}
-              </li>
-            </ol>
-          </nav>
+          <p className="text-meta tracking-[0.06em] text-fg-3 uppercase">{brand.pillarsLine}</p>
           <motion.a
-            href="#statement"
+            href="#challenge"
             style={{ opacity: cueOpacity }}
             className="pointer-events-auto hidden items-center gap-2 text-meta text-fg-3 transition-colors duration-150 hover:text-fg sm:inline-flex"
           >

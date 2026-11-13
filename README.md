@@ -1,6 +1,6 @@
 # PRISM AI Governance — website
 
-A redesigned product site for **PRISM AI, a Seasia AI Governance Engine**, built with React, TypeScript, Vite and Tailwind CSS. All product copy comes from the PRISM AI product page; the design, motion and interaction are new.
+Product site for **PRISM AI — Enterprise AI Governance Platform by MoogleLabs** (part of Group Seasia), built with React, TypeScript, Vite and Tailwind CSS. All copy comes from the MoogleLabs website content brief and lives in `src/content/prism.ts`.
 
 - Content source and mapping: [docs/CONTENT_INVENTORY.md](docs/CONTENT_INVENTORY.md)
 - Design direction, tokens, motion rules and the Unslop audit: [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md)
@@ -60,15 +60,15 @@ src/
   main.tsx                 Entry: fonts, global CSS, <App />
   App.tsx                  Page composition and MotionConfig
   index.css                Design tokens, themes, type scale, utilities
-  content/prism.ts         Every product string, from the source page
+  content/prism.ts         Every string on the site, from the content brief, plus link targets
   lib/
     motion.ts              Easing, durations, stagger, rise distance
     hooks.ts               Media queries, scroll-spy, on-screen detection
   components/
     ui/                    ButtonLink, Reveal, BandMarker, PrismMark
     reactbits/             Adapted React Bits components
-    visuals/               SVG diagrams: hero prism, capability dial, glyphs, closing beam
-    console/               Conceptual product console and its four views
+    visuals/               SVG diagrams: hero prism, capability dial, pillar glyphs, governance hub, closing beam
+    console/               Conceptual product console and its five views
   sections/                One file per page section, in page order
 docs/                      Content inventory and design system
 public/favicon.svg
@@ -76,16 +76,26 @@ public/favicon.svg
 
 ## Page sections
 
-1. Header — sticky, scroll-spy, accessible mobile sheet
-2. Hero — tagline, summary, refraction diagram of the nine capabilities
-3. Statement — the mission sentence revealed on scroll
-4. Platform — closing statement and the tabbed console (Overview, Traces, Prompts, Evaluations)
-5. Why PRISM AI? — five pillars with line glyphs
-6. Core capabilities — 9 × 5 functions with a sticky dial that follows the reader
-7. Delivering business value — five outcomes
-8. Built for enterprise scale — attributes and the security & governance controls
-9. Closing CTA — Schedule a meeting, Partners
-10. Footer — PRISM AI wordmark and copyright line
+Order follows the brief's narrative: attention → problem → positioning → product → differentiation → capabilities → governance → agentic control → value → trust → conversion.
+
+1. Header — PrismAI logo, "by MoogleLabs", scroll-spy nav, Schedule a meeting
+2. Hero — "You built the AI. Who's governing it?", signature line, prism diagram (five ecosystem inputs → nine capability streams)
+3. The enterprise AI challenge — scroll-revealed problem statement and five challenges
+4. Introducing PRISM AI — positioning and the Observe → Evaluate → Govern stages
+5. The platform — tabbed console (Overview, Traces, Prompts, Evaluations, Analytics) with per-tab copy
+6. Why PRISM AI? — five pillars with line glyphs
+7. Core capabilities — nine groups with a sticky dial that follows the reader
+8. Six dimensions of AI governance — six-facet prism with PRISM AI at the centre, linked to the dimension list
+9. G.A.T.E. Way — agentic approval flow, labelled "Product direction" (see below)
+10. Business value — five outcomes
+11. Enterprise readiness — five attributes and the security & governance controls
+12. Closing CTA and footer
+
+## Before publishing
+
+- **Demo and live-platform links.** `links.demo` and `links.livePlatform` in `src/content/prism.ts` point at the meeting scheduler until real URLs exist. Every "Watch the demo" and "Explore the live platform" button reads from there.
+- **G.A.T.E. Way.** Per the brief, it is labelled "Product direction" until the approval workflow is implemented or demonstrable. Set `gateWay.status = 'available'` to drop the label, or `gateWay.show = false` to remove the section.
+- **Claims.** Confirm the integration, security, deployment, compliance, data-residency and real-time claims. Integration logos (OpenAI, LangChain, LlamaIndex, OpenTelemetry) are intentionally not shown until the integrations are confirmed.
 
 ## Accessibility and performance
 
@@ -96,16 +106,16 @@ public/favicon.svg
 - `prefers-reduced-motion` respected everywhere; content never depends on an animation finishing.
 - Animated figures and scroll-revealed text expose their final value to assistive tech.
 - Diagrams are SVG with an HTML label layer; looping pulses pause off-screen.
-- ~147 KB gzip JS, ~12 KB gzip CSS, fonts subset by `unicode-range`. Fixed aspect ratios on visuals to avoid layout shift.
+- ~155 KB gzip JS, ~13 KB gzip CSS, fonts subset by `unicode-range`. Fixed aspect ratios on visuals to avoid layout shift.
 
 Tested at 390, 768, 1024 and 1440 px widths with no horizontal overflow.
 
 ## Known gaps
 
-See §4 of the content inventory: no "How it works" section (the source has no workflow), no testimonials or certifications, the official Seasia logo file is not bundled, and three console views use clearly labelled sample data.
+See §4 of the content inventory: confirmed demo and live-platform URLs, G.A.T.E. Way availability and verified integrations are still open. Console views use clearly labelled sample data.
 
 ## Credits
 
 - [Unslop](https://github.com/heydamir/unslop) by Damir Sokolovsky ([@heydamir](https://x.com/heydamir)), CC BY 4.0 — design-refinement method.
 - [React Bits](https://reactbits.dev) — source of the adapted animation components (MIT + Commons Clause).
-- Content © Seasia. Source: <https://www.groupseasia.com/enterprise-ai/prism-ai-governance>
+- Content © Group Seasia. Source: "PRISM AI — Complete Website Content & Design Change Brief" by MoogleLabs.
