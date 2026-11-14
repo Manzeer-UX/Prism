@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { Menu, X } from 'lucide-react'
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { useBookingTrigger } from '../components/booking/booking-context'
 import { ButtonLink } from '../components/ui/ButtonLink'
 import { PrismWordmark } from '../components/ui/PrismMark'
 import { brand, cta, links, nav } from '../content/prism'
@@ -18,6 +19,11 @@ export function Header() {
   )
   const toggleRef = useRef<HTMLButtonElement>(null)
   const sheetRef = useRef<HTMLDivElement>(null)
+
+  // "Schedule a meeting" opens the Calendly overlay. From the mobile sheet the
+  // sheet closes first and focus returns to the menu button afterwards.
+  const book = useBookingTrigger()
+  const sheetBook = useBookingTrigger(useCallback(() => toggleRef.current, []))
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -118,7 +124,7 @@ export function Header() {
 
           <div className="flex items-center gap-2">
             <div className="hidden sm:block">
-              <ButtonLink href={links.scheduleMeeting} size="md">
+              <ButtonLink href={links.scheduleMeeting} size="md" {...book}>
                 {cta.scheduleMeeting}
               </ButtonLink>
             </div>
@@ -169,7 +175,14 @@ export function Header() {
                 ))}
               </ul>
               <div className="mt-auto flex flex-col gap-3 pt-10">
-                <ButtonLink href={links.scheduleMeeting} arrow="external">
+                <ButtonLink
+                  href={links.scheduleMeeting}
+                  {...sheetBook}
+                  onClick={(e) => {
+                    sheetBook.onClick(e)
+                    if (e.defaultPrevented) setOpen(false)
+                  }}
+                >
                   {cta.scheduleMeeting}
                 </ButtonLink>
                 <ButtonLink href={links.demo} variant="secondary" arrow="forward">

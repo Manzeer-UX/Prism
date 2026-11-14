@@ -117,11 +117,18 @@ export function Capabilities() {
                   </Reveal>
                   <ul className="mt-8 grid gap-x-8 sm:grid-cols-2">
                     {c.items.map((item, j) => (
-                      <Reveal as="li" key={item} delay={0.04 * j} className="flex gap-4 border-t border-line py-3.5">
-                        <span className="pt-1 text-meta text-fg-3 tabular-nums" aria-hidden="true">
-                          {c.number}.{j + 1}
-                        </span>
-                        <span className="text-[0.9375rem] text-fg-2 md:text-base">{item}</span>
+                      <Reveal
+                        as="li"
+                        key={item}
+                        delay={0.04 * j}
+                        className="flex gap-3.5 border-t border-line py-3.5 text-[0.9375rem] md:text-base"
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="mt-[0.6em] size-1.5 shrink-0 rounded-full"
+                          style={{ backgroundColor: `var(--band-${i + 1})` }}
+                        />
+                        <span className="text-fg-2">{item}</span>
                       </Reveal>
                     ))}
                   </ul>

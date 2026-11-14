@@ -1,3 +1,4 @@
+import { useBookingTrigger } from '../components/booking/booking-context'
 import { ButtonLink } from '../components/ui/ButtonLink'
 import { Reveal } from '../components/ui/Reveal'
 import { BlurText } from '../components/reactbits/BlurText'
@@ -6,6 +7,9 @@ import { brand, closing, cta, links } from '../content/prism'
 
 /** 11 · Final call to action, over the dark grid with the converging prism beam. */
 export function ClosingCta() {
+  // "Schedule a meeting" opens the Calendly booking overlay, as in the header.
+  const book = useBookingTrigger()
+
   return (
     <section
       id="contact"
@@ -21,7 +25,7 @@ export function ClosingCta() {
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-8">
             <Reveal>
-              <p className="text-meta text-fg-3">{closing.eyebrow}</p>
+              <p className="text-title text-fg-2">{closing.eyebrow}</p>
             </Reveal>
             <BlurText
               as="h2"
@@ -35,21 +39,20 @@ export function ClosingCta() {
           <Reveal delay={0.2} className="flex flex-col justify-end gap-6 lg:col-span-4">
             <p className="text-fg-2">{closing.body}</p>
             <div>
-              <p className="flex items-center gap-3 font-mono text-[0.8125rem] font-medium tracking-[0.08em] text-fg uppercase">
+              <p className="text-fg">{closing.focus}</p>
+              <p className="mt-3 flex items-center gap-3 font-mono text-[0.8125rem] font-medium tracking-[0.08em] text-fg uppercase">
                 <span className="h-px w-8 bg-accent" aria-hidden="true" />
                 {brand.signature}
               </p>
-              <p className="mt-3 text-fg">{closing.focus}</p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <ButtonLink href={links.scheduleMeeting} arrow="forward">
+              <ButtonLink href={links.scheduleMeeting} arrow="forward" {...book}>
                 {cta.scheduleMeeting}
               </ButtonLink>
               <ButtonLink href={links.demo} variant="secondary" arrow="forward">
                 {cta.watchProductDemo}
               </ButtonLink>
             </div>
-            <p className="text-[0.8125rem] text-fg-3">{closing.attribution}</p>
           </Reveal>
         </div>
       </div>

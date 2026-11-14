@@ -357,6 +357,40 @@
 }
 
 /* ------------------------------------------------------------------
+   Booking overlay (native <dialog>)
+   ------------------------------------------------------------------ */
+
+html:has(.booking-dialog[open]) {
+  overflow: hidden;
+}
+
+.booking-dialog::backdrop {
+  background-color: rgb(6 9 17 / 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.booking-dialog[open] {
+  animation: booking-in 260ms var(--ease-prism);
+}
+
+.booking-dialog[open]::backdrop {
+  animation: booking-fade 260ms var(--ease-prism);
+}
+
+@keyframes booking-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+}
+
+@keyframes booking-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* ------------------------------------------------------------------
    Reduced motion
    ------------------------------------------------------------------ */
 

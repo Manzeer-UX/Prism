@@ -3,7 +3,11 @@ import { ButtonLink } from '../components/ui/ButtonLink'
 import { Reveal } from '../components/ui/Reveal'
 import { cta, links, platform } from '../content/prism'
 
-/** 04 · The platform — the product experience, carried by the tabbed console. */
+/**
+ * 04 · The platform — the product experience, carried by the tabbed console.
+ * The platform explanation sits once, in the introduction above, so this
+ * section opens straight on the pull line and the console.
+ */
 export function Platform() {
   return (
     <section
@@ -13,28 +17,13 @@ export function Platform() {
       className="relative border-t border-line section-pad"
     >
       <div className="shell">
-        <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-8">
-          <div className="lg:col-span-7">
-            <Reveal>
-              <p className="text-meta text-fg-3">{platform.eyebrow}</p>
-            </Reveal>
-            <Reveal delay={0.05} blur>
-              <h2 id="platform-title" className="mt-4 max-w-[20ch] text-display-l text-fg">
-                {platform.title}
-              </h2>
-            </Reveal>
-          </div>
-          <Reveal delay={0.1} className="space-y-4 lg:col-span-5 lg:pb-1">
-            {platform.body.map((p, i) => (
-              <p key={i} className={i === 0 ? 'text-lead text-fg' : 'text-fg-2'}>
-                {p}
-              </p>
-            ))}
-          </Reveal>
-        </div>
-
-        <Reveal delay={0.05} className="mt-14 border-t border-line pt-8 md:mt-20 md:pt-10">
-          <p className="max-w-[30ch] text-display-m text-fg">{platform.pullLine}</p>
+        <Reveal>
+          <p className="text-meta text-fg-3">{platform.eyebrow}</p>
+        </Reveal>
+        <Reveal delay={0.05} blur>
+          <h2 id="platform-title" className="mt-4 max-w-[24ch] text-display-l text-fg">
+            {platform.pullLine}
+          </h2>
         </Reveal>
 
         <Reveal delay={0.1} className="mt-10 md:mt-12">

@@ -69,6 +69,7 @@ src/
     reactbits/             Adapted React Bits components
     visuals/               SVG diagrams: hero prism, capability dial, pillar glyphs, governance hub, closing beam
     console/               Conceptual product console and its five views
+    booking/               Calendly booking overlay (native dialog) and its trigger hook
   sections/                One file per page section, in page order
 docs/                      Content inventory and design system
 public/favicon.svg
@@ -93,7 +94,7 @@ Order follows the brief's narrative: attention → problem → positioning → p
 
 ## Before publishing
 
-- **Demo and live-platform links.** `links.demo` and `links.livePlatform` in `src/content/prism.ts` point at the meeting scheduler until real URLs exist. Every "Watch the demo" and "Explore the live platform" button reads from there.
+- **Demo and live-platform links.** `links.demo` and `links.livePlatform` in `src/content/prism.ts` point at the Group Seasia meeting page until real URLs exist. Every "Watch the demo" and "Explore the live platform" button reads from there.
 - **G.A.T.E. Way.** Per the brief, it is labelled "Product direction" until the approval workflow is implemented or demonstrable. Set `gateWay.status = 'available'` to drop the label, or `gateWay.show = false` to remove the section.
 - **Claims.** Confirm the integration, security, deployment, compliance, data-residency and real-time claims. Integration logos (OpenAI, LangChain, LlamaIndex, OpenTelemetry) are intentionally not shown until the integrations are confirmed.
 
