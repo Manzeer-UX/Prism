@@ -42,7 +42,7 @@ Source: **"PRISM AI — Complete Website Content & Design Change Brief"** (Moogl
 
 | Item | Status |
 |---|---|
-| Watch the demo / Watch the product demo URL | No URL supplied. `links.demo` points at the Group Seasia meeting page |
+| Watch the demo / Watch the product demo URL | No URL supplied. Every demo button (hero, Introducing, mobile menu, closing CTA) is shown but not linked |
 | Explore the live platform URL | No URL supplied. `links.livePlatform` points at the Group Seasia meeting page |
 | Contact link | Points at the Group Seasia meeting page |
 | Schedule a meeting (header, mobile menu, closing CTA) | Every one opens the Calendly booking overlay (`links.scheduleMeeting`) |

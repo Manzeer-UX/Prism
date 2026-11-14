@@ -185,7 +185,7 @@ export function Header() {
                 >
                   {cta.scheduleMeeting}
                 </ButtonLink>
-                <ButtonLink href={links.demo} variant="secondary" arrow="forward">
+                <ButtonLink variant="secondary" arrow="forward">
                   {cta.watchDemo}
                 </ButtonLink>
                 <p className="pt-3 text-center text-meta text-fg-3">

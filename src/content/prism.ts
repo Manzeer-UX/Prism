@@ -33,15 +33,14 @@ export const brand = {
 }
 
 /**
- * Link destinations. `demo` and `livePlatform` have no confirmed URL yet, so
- * they point at the Group Seasia meeting page, which is the working way to get
- * a demo today. Swap in the real URLs here when they exist; every button reads
- * from this object.
+ * Link destinations. There is no product demo URL yet, so every "Watch the
+ * demo" button is shown without a link (add `demo` here and pass it as `href`
+ * once it exists). `livePlatform` has no confirmed URL either and points at the
+ * Group Seasia meeting page for now.
  */
 export const links = {
   /** Calendly event: every "Schedule a meeting" button opens it in the booking overlay */
   scheduleMeeting: 'https://calendly.com/palaksandhu-seasiainfotech/prism-ai-discovery-introduction-call',
-  demo: site('/partners?schedule=1'),
   livePlatform: site('/partners?schedule=1'),
   contact: site('/partners?schedule=1'),
 }
@@ -195,7 +194,7 @@ export type ConsoleTab = {
  * opens straight on the console with its pull line as the heading.
  */
 export const platform = {
-  eyebrow: 'The platform',
+  eyebrow: 'Product experience',
   pullLine: "Don't just look at the output. Look at what happened behind it.",
   tabs: [
     {

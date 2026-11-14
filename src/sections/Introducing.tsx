@@ -2,7 +2,7 @@ import { ChartNoAxesColumnIncreasing, Layers, ShieldCheck, type LucideIcon } fro
 import { motion, useReducedMotion } from 'motion/react'
 import { ButtonLink } from '../components/ui/ButtonLink'
 import { Reveal } from '../components/ui/Reveal'
-import { cta, introducing, links } from '../content/prism'
+import { cta, introducing } from '../content/prism'
 import { EASE } from '../lib/motion'
 
 /** Spectrum hue for each stage: the start, middle and end of the capability bands */
@@ -106,7 +106,7 @@ export function Introducing() {
               <ButtonLink href="#platform" arrow="forward">
                 {cta.explorePlatform}
               </ButtonLink>
-              <ButtonLink href={links.demo} variant="secondary" arrow="forward">
+              <ButtonLink variant="secondary" arrow="forward">
                 {cta.watchDemo}
               </ButtonLink>
             </div>
