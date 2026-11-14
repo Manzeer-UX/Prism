@@ -48,11 +48,13 @@ function Stage() {
  * The persistent 3D world — one stage for the network, the recurring request
  * and the prism. `t` is film time in seconds.
  */
-export function World3D({ t, opacity = 1 }: { t: number; opacity?: number }) {
+export function World3D({ t, opacity = 1, blur = 0, dim = 0 }: { t: number; opacity?: number; blur?: number; dim?: number }) {
   const { width, height } = useVideoConfig()
   const state = useMemo(() => worldAt(t), [t])
+  // focus pull (see Film): soften and darken the whole world behind a headline
+  const filter = blur > 0.05 || dim > 0.005 ? `blur(${blur.toFixed(2)}px) brightness(${(1 - dim).toFixed(3)})` : undefined
   return (
-    <AbsoluteFill style={{ opacity }}>
+    <AbsoluteFill style={{ opacity, filter }}>
       <ThreeCanvas
         width={width}
         height={height}

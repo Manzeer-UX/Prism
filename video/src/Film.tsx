@@ -2,7 +2,7 @@ import type React from 'react'
 import { AbsoluteFill, Html5Audio, getStaticFiles, staticFile, useCurrentFrame } from 'remotion'
 import { Backdrop } from './components/Backdrop'
 import { Grade } from './components/Grade'
-import { EASE } from './lib/anim'
+import { EASE, ramp } from './lib/anim'
 import { BrandClosingScene } from './scenes/BrandClosingScene'
 import { BusinessImpactScene } from './scenes/BusinessImpactScene'
 import { CapabilitiesScene } from './scenes/CapabilitiesScene'
@@ -11,7 +11,7 @@ import { InvisibleChainScene } from './scenes/InvisibleChainScene'
 import { OpeningScene } from './scenes/OpeningScene'
 import { PrismRevealScene } from './scenes/PrismRevealScene'
 import { ProductExperienceScene } from './scenes/ProductExperienceScene'
-import { timeline, type SceneId } from './timeline'
+import { M, scene, timeline, type SceneId } from './timeline'
 import { WorldLabels } from './world/Labels'
 import { World3D } from './world/World3D'
 import { worldVisible } from './world/director'
@@ -42,6 +42,22 @@ const SCENES: Record<SceneId, React.FC<SceneProps>> = {
 /** Frames a scene stays mounted beyond its edges, for overlapping transitions */
 const MARGIN = 45
 
+/**
+ * Focus pull: while a full-screen statement is on screen over the network, the
+ * 3D world softens and steps back (blur + dim) so the words own the frame.
+ * 0 = sharp world, 1 = fully pulled back.
+ */
+function focusPull(f: number) {
+  const windows: [number, number][] = [
+    [M('headline') - 6, M('pushIn')], // You built the AI. Who's governing it?
+    [M('q1') - 9, scene('chain').to - 6], // What happened? Why did it happen? Can you trace it?
+    [M('cannotSee') - 6, M('ignite') - 2], // You cannot govern what you cannot see.
+  ]
+  let k = 0
+  for (const [a, b] of windows) k = Math.max(k, ramp(f, a, 14) * (1 - ramp(f, b - 10, 10)))
+  return k
+}
+
 const fps = timeline.fps
 
 /**
@@ -53,8 +69,10 @@ export const Film: React.FC<FilmProps> = ({ offset = 0, audio = 'full' }) => {
   const t = f / fps
 
   const showWorld = worldVisible(t)
-  // the world hands over to the interface (05) and comes back for (07)
-  const worldOpacity = t < 60 ? 1 - Math.min(1, Math.max(0, (t - 57.6) / 0.6)) : Math.min(1, Math.max(0, (t - 105.6) / 1.0))
+  // the world hands over to the interface (05) and comes back for (07) only
+  // once the capability wheel has fully left, so the two never overlap
+  const worldOpacity = t < 60 ? 1 - Math.min(1, Math.max(0, (t - 57.6) / 0.6)) : Math.min(1, Math.max(0, (t - 106.4) / 0.7))
+  const focus = focusPull(f)
 
   const audioFile = audio === 'none' ? null : `audio/mix-${audio}.wav`
   const hasAudio = audioFile !== null && getStaticFiles().some((s) => s.name === audioFile)
@@ -62,7 +80,7 @@ export const Film: React.FC<FilmProps> = ({ offset = 0, audio = 'full' }) => {
   return (
     <AbsoluteFill style={{ backgroundColor: '#060911', overflow: 'hidden' }}>
       <Backdrop grid={t > 56 && t < 108 ? 1 : 0} />
-      {showWorld ? <World3D t={t} opacity={worldOpacity} /> : null}
+      {showWorld ? <World3D t={t} opacity={worldOpacity} blur={7 * focus} dim={0.42 * focus} /> : null}
       {showWorld ? <WorldLabels t={t} /> : null}
       {timeline.scenes.map((s) => {
         if (f < s.from - MARGIN || f >= s.to + MARGIN) return null

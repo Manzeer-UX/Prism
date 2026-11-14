@@ -219,35 +219,54 @@ function ChapterTitle({ g }: { g: number }) {
 }
 
 /** The S2 request, docked onto the trace that PRISM AI captured for it */
+/**
+ * The connector runs in the empty gutter between the rail and the cards, so it
+ * never crosses the span names: out from the left edge of the agent.run row,
+ * down the gutter, and into the note below the waterfall.
+ */
 function RequestNote({ p }: { p: number }) {
+  const noteX = TR.card.x
+  const noteY = TR.card.y + TR.card.h + 22
+  const noteH = 64
+  const gutter = TR.card.x - 9
+  const ax = TR.run.x + 4
+  const ay = TR.run.y + TR.run.h / 2
+  const by = noteY + noteH / 2
+  const path = `M ${ax} ${ay} H ${gutter + 6} Q ${gutter} ${ay} ${gutter} ${ay + 6} V ${by - 6} Q ${gutter} ${by} ${gutter + 6} ${by} H ${noteX}`
   return (
-    <div style={{ position: 'absolute', left: TR.card.x + 12, top: TR.card.y + TR.card.h + 22, opacity: p, transform: `translateY(${(1 - p) * 10}px)` }}>
-      <div
-        style={{
-          position: 'absolute',
-          left: 22,
-          top: -(TR.card.y + TR.card.h + 22 - (TR.run.y + TR.run.h / 2)),
-          width: 1.5,
-          height: TR.card.y + TR.card.h + 22 - (TR.run.y + TR.run.h / 2),
-          background: `linear-gradient(to top, ${color.accent}, rgba(76,141,255,0.15))`,
-          transformOrigin: 'bottom',
-          transform: `scaleY(${p})`,
-        }}
-      />
-      <div
-        style={{
-          width: 520,
-          borderRadius: 12,
-          border: `1px solid rgba(76,141,255,0.55)`,
-          background: 'rgba(13, 22, 44, 0.94)',
-          padding: '12px 16px',
-          boxShadow: '0 0 30px rgba(76,141,255,0.2)',
-        }}
-      >
-        <div style={{ fontFamily: font.mono, fontSize: 12, color: color.accentInk }}>agent.run · the request from before</div>
-        <div style={{ marginTop: 6, fontFamily: font.sans, fontSize: 17, color: color.fg }}>{REQUEST_TEXT}</div>
+    <>
+      <svg style={{ position: 'absolute', left: 0, top: 0, overflow: 'visible' }} width={1} height={1}>
+        <path
+          d={path}
+          fill="none"
+          stroke={color.accent}
+          strokeWidth={1.5}
+          strokeLinecap="round"
+          pathLength={100}
+          strokeDasharray="100 100"
+          strokeDashoffset={100 * (1 - p)}
+          opacity={0.9}
+        />
+        <circle cx={ax} cy={ay} r={3} fill={color.accent} opacity={p} />
+      </svg>
+      <div style={{ position: 'absolute', left: noteX, top: noteY, opacity: p, transform: `translateY(${(1 - p) * 10}px)` }}>
+        <div
+          style={{
+            width: 520,
+            height: noteH,
+            boxSizing: 'border-box',
+            borderRadius: 12,
+            border: `1px solid rgba(76,141,255,0.55)`,
+            background: 'rgba(13, 22, 44, 0.94)',
+            padding: '11px 16px',
+            boxShadow: '0 0 30px rgba(76,141,255,0.2)',
+          }}
+        >
+          <div style={{ fontFamily: font.mono, fontSize: 12, color: color.accentInk }}>agent.run · the request from before</div>
+          <div style={{ marginTop: 6, fontFamily: font.sans, fontSize: 17, color: color.fg }}>{REQUEST_TEXT}</div>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

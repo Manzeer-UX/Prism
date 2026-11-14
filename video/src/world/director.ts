@@ -216,7 +216,7 @@ export function requestProgress(t: number) {
 
 /** Is the world on screen at time t? (scenes 05–06 are pure interface) */
 export function worldVisible(t: number) {
-  return t < 58.2 || t > 105.6
+  return t < 58.2 || t > 106.35
 }
 
 export function worldAt(t: number): WorldState {
@@ -396,7 +396,8 @@ export function worldAt(t: number): WorldState {
       if (vis <= 0 && !organisedPhase) return
       const progress = easeOut(rampT(tn, T.forms + e.delay, 0.7))
       const isChain = e.kind === 'chain'
-      let I = isChain ? 0.3 : 0.17
+      // quiet by default: the network is context, not the subject
+      let I = isChain ? 0.26 : 0.11
       const col = isChain ? C.accent : C.edge
       if (!isChain) I *= focusDim
       // 01: decisions accelerating — the whole network brightens
@@ -410,7 +411,7 @@ export function worldAt(t: number): WorldState {
       const b = nodePos.get(e.b)!
       const progress = easeOut(rampT(tn, T.complexity + e.delay, 0.5))
       const col = i % 3 === 0 ? C.agent : i % 3 === 1 ? C.accent : C.tool
-      drawEdge(a, b, progress, 500 + i * 7.7, 0.42, col, 0.024)
+      drawEdge(a, b, progress, 500 + i * 7.7, 0.3, col, 0.024)
     })
   }
 
@@ -465,7 +466,7 @@ export function worldAt(t: number): WorldState {
       const u = local / travel
       const dirA = hash(i + 5) > 0.5
       const p = dirA ? a.clone().lerp(b, u) : b.clone().lerp(a, u)
-      glows.push({ p, color: C.white.clone().lerp(C.accent, 0.4), intensity: 0.75 * quiet * depthFade(p) * formed, size: 0.32 })
+      glows.push({ p, color: C.white.clone().lerp(C.accent, 0.4), intensity: 0.62 * quiet * depthFade(p) * formed, size: 0.32 })
     })
   }
 

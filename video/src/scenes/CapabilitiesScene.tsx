@@ -17,11 +17,20 @@ export function CapabilitiesScene({ frame }: SceneProps) {
   const g = (name: 'group1' | 'group2' | 'group3') => M(name) - S
   const groups = [g('group1'), g('group2'), g('group3')]
   const segment = Array.from({ length: 9 }, (_, i) => groups[Math.floor(i / 3)] + (i % 3) * 5)
-  const exit = ramp(frame, scene('capabilities').to - S - 14, 26, EASE)
+  // A clean hand-off: the wheel gathers into its centre mark and is gone
+  // before the organised network fades in (Film starts it at 106.4 s).
+  const exit = ramp(frame, scene('capabilities').to - S - 35, 18, EASE)
   const nine = L('s6-nine').from - S
 
   return (
-    <AbsoluteFill style={{ opacity: 1 - exit, transform: `scale(${1 - exit * 0.08})`, filter: exit > 0 ? `blur(${exit * 8}px)` : undefined }}>
+    <AbsoluteFill
+      style={{
+        opacity: 1 - exit,
+        transform: `scale(${1 - exit * 0.22})`,
+        transformOrigin: '1010px 604px',
+        filter: exit > 0 ? `blur(${exit * 10}px)` : undefined,
+      }}
+    >
       <CapabilityWheel frame={frame} timing={{ draw: 4, segment, complete: M('wheelComplete') - S }} cx={1010} cy={604} />
       <div style={{ position: 'absolute', left: 128, top: 58, width: 820 }}>
         <AnimatedHeadline text="Nine capabilities." frame={frame} start={nine} stagger={3} style={{ ...type.displayM, fontSize: 58 }} />
