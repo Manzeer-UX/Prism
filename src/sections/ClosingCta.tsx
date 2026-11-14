@@ -49,7 +49,8 @@ export function ClosingCta() {
               <ButtonLink href={links.scheduleMeeting} arrow="forward" {...book}>
                 {cta.scheduleMeeting}
               </ButtonLink>
-              <ButtonLink href={links.demo} variant="secondary" arrow="forward">
+              {/* No product demo URL yet, so this is shown but not linked */}
+              <ButtonLink variant="secondary" arrow="forward">
                 {cta.watchProductDemo}
               </ButtonLink>
             </div>

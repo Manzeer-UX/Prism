@@ -3,7 +3,7 @@ import { ArrowDown } from 'lucide-react'
 import { BlurText } from '../components/reactbits/BlurText'
 import { ButtonLink } from '../components/ui/ButtonLink'
 import { PrismRefraction } from '../components/visuals/PrismRefraction'
-import { brand, cta, hero, links } from '../content/prism'
+import { brand, cta, hero } from '../content/prism'
 import { DURATION, EASE } from '../lib/motion'
 
 export function Hero() {
@@ -61,7 +61,7 @@ export function Hero() {
             <ButtonLink href="#platform" arrow="forward">
               {cta.explorePlatform}
             </ButtonLink>
-            <ButtonLink href={links.demo} variant="secondary" arrow="forward">
+            <ButtonLink variant="secondary" arrow="forward">
               {cta.watchDemo}
             </ButtonLink>
           </motion.div>

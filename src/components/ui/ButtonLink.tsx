@@ -5,7 +5,8 @@ type Variant = 'primary' | 'secondary' | 'quiet'
 type Size = 'md' | 'lg'
 
 type ButtonLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
-  href: string
+  /** Leave out for a placeholder: same look, but not a link and not interactive */
+  href?: string
   variant?: Variant
   size?: Size
   /** Arrow glyph after the label: "external" leaves the page, "forward" moves within it */
@@ -40,10 +41,12 @@ export function ButtonLink({
 }: ButtonLinkProps) {
   const Icon = arrow === 'external' ? ArrowUpRight : arrow === 'forward' ? ArrowRight : null
   const pad = variant === 'quiet' ? 'px-0 h-auto' : ''
+  // An <a> without href is a placeholder: not focusable, not clickable, read as text.
+  const inert = href ? '' : 'pointer-events-none cursor-default'
   return (
     <a
       href={href}
-      className={`${base} ${variants[variant]} ${variant === 'quiet' ? '' : sizes[size]} ${pad} ${className}`}
+      className={`${base} ${variants[variant]} ${variant === 'quiet' ? '' : sizes[size]} ${pad} ${inert} ${className}`}
       {...rest}
     >
       <span>{children}</span>

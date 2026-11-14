@@ -94,7 +94,7 @@ Order follows the brief's narrative: attention → problem → positioning → p
 
 ## Before publishing
 
-- **Demo and live-platform links.** `links.demo` and `links.livePlatform` in `src/content/prism.ts` point at the Group Seasia meeting page until real URLs exist. Every "Watch the demo" and "Explore the live platform" button reads from there.
+- **Demo and live-platform links.** There is no demo URL yet, so every "Watch the demo" button is shown without a link; add the URL to `links` in `src/content/prism.ts` and pass it as `href`. `links.livePlatform` points at the Group Seasia meeting page until a real URL exists.
 - **G.A.T.E. Way.** Per the brief, it is labelled "Product direction" until the approval workflow is implemented or demonstrable. Set `gateWay.status = 'available'` to drop the label, or `gateWay.show = false` to remove the section.
 - **Claims.** Confirm the integration, security, deployment, compliance, data-residency and real-time claims. Integration logos (OpenAI, LangChain, LlamaIndex, OpenTelemetry) are intentionally not shown until the integrations are confirmed.
 

@@ -1,9 +1,8 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { Activity, BarChart3, ClipboardCheck, FileText, LayoutDashboard, type LucideIcon } from 'lucide-react'
 import { useRef, useState, type KeyboardEvent } from 'react'
-import { capabilities, platform, type ConsoleTab } from '../../content/prism'
+import { platform, type ConsoleTab } from '../../content/prism'
 import { DURATION, EASE } from '../../lib/motion'
-import { BandMarker } from '../ui/BandMarker'
 import { PrismMark } from '../ui/PrismMark'
 import { AnalyticsView } from './AnalyticsView'
 import { EvaluationsView } from './EvaluationsView'
@@ -11,33 +10,36 @@ import { OverviewView } from './OverviewView'
 import { PromptsView } from './PromptsView'
 import { TracesView } from './TracesView'
 
-type ViewId = ConsoleTab['id']
+export type ViewId = ConsoleTab['id']
 
 type ViewMeta = {
   icon: LucideIcon
-  /** Capability ids from content/prism.ts that this view illustrates */
-  illustrates: string[]
   render: () => React.ReactNode
 }
 
 const META: Record<ViewId, ViewMeta> = {
-  overview: { icon: LayoutDashboard, illustrates: ['observability', 'analytics'], render: () => <OverviewView /> },
-  traces: {
-    icon: Activity,
-    illustrates: ['observability', 'agent-monitoring', 'rag-governance'],
-    render: () => <TracesView />,
-  },
-  prompts: { icon: FileText, illustrates: ['prompt-governance'], render: () => <PromptsView /> },
-  evaluations: { icon: ClipboardCheck, illustrates: ['evaluation', 'datasets'], render: () => <EvaluationsView /> },
-  analytics: { icon: BarChart3, illustrates: ['analytics', 'cost'], render: () => <AnalyticsView /> },
+  overview: { icon: LayoutDashboard, render: () => <OverviewView /> },
+  traces: { icon: Activity, render: () => <TracesView /> },
+  prompts: { icon: FileText, render: () => <PromptsView /> },
+  evaluations: { icon: ClipboardCheck, render: () => <EvaluationsView /> },
+  analytics: { icon: BarChart3, render: () => <AnalyticsView /> },
 }
 
 const VIEWS = platform.tabs.map((t) => ({ ...t, ...META[t.id] }))
 
-const capIndex = new Map(capabilities.map((c, i) => [c.id, { cap: c, band: i + 1 }]))
+type ConsolePreviewProps = {
+  /** Selected view; pass with `onActiveChange` to control it from outside */
+  active?: ViewId
+  onActiveChange?: (id: ViewId) => void
+}
 
-export function ConsolePreview() {
-  const [active, setActive] = useState<ViewId>('overview')
+export function ConsolePreview({ active: controlled, onActiveChange }: ConsolePreviewProps = {}) {
+  const [own, setOwn] = useState<ViewId>('overview')
+  const active = controlled ?? own
+  const setActive = (id: ViewId) => {
+    if (controlled === undefined) setOwn(id)
+    onActiveChange?.(id)
+  }
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
   const view = VIEWS.find((v) => v.id === active) ?? VIEWS[0]
 
@@ -102,28 +104,9 @@ export function ConsolePreview() {
       </div>
 
       {/* What the selected view is for */}
-      <div className="mt-6 grid gap-4 md:grid-cols-12 md:items-end md:gap-8" aria-live="polite">
-        <div className="md:col-span-7">
-          <p className="text-title text-fg">{view.headline}</p>
-          <p className="mt-2 max-w-[40rem] text-fg-2">{view.body}</p>
-        </div>
-        <p className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-meta text-fg-3 md:col-span-5 md:justify-end">
-          <span>Illustrates</span>
-          {view.illustrates.map((id) => {
-            const entry = capIndex.get(id)
-            if (!entry) return null
-            return (
-              <a
-                key={id}
-                href={`#cap-${id}`}
-                className="inline-flex items-center gap-1.5 text-fg-2 transition-colors duration-150 hover:text-fg"
-              >
-                <BandMarker band={entry.band} className="h-3" />
-                {entry.cap.number} {entry.cap.short}
-              </a>
-            )
-          })}
-        </p>
+      <div className="mt-6" aria-live="polite">
+        <p className="text-title text-fg">{view.headline}</p>
+        <p className="mt-2 max-w-[40rem] text-fg-2">{view.body}</p>
       </div>
 
       {/* Window */}
