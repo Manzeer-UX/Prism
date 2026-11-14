@@ -20,6 +20,9 @@ export const brand = {
   name: 'PRISM AI',
   by: 'MoogleLabs',
   byline: 'by MoogleLabs',
+  poweredBy: 'Powered by MoogleLabs',
+  /** MoogleLabs site, linked from its logo in the footer */
+  byUrl: 'https://www.mooglelabs.com/',
   parent: 'Part of Group Seasia',
   copyrightHolder: 'Group Seasia',
   positioning: 'Enterprise AI Governance Platform',
@@ -31,12 +34,13 @@ export const brand = {
 
 /**
  * Link destinations. `demo` and `livePlatform` have no confirmed URL yet, so
- * they point at the meeting scheduler, which is the working way to get a demo
- * today. Swap in the real URLs here when they exist; every button reads from
- * this object.
+ * they point at the Group Seasia meeting page, which is the working way to get
+ * a demo today. Swap in the real URLs here when they exist; every button reads
+ * from this object.
  */
 export const links = {
-  scheduleMeeting: site('/partners?schedule=1'),
+  /** Calendly event: every "Schedule a meeting" button opens it in the booking overlay */
+  scheduleMeeting: 'https://calendly.com/palaksandhu-seasiainfotech/prism-ai-discovery-introduction-call',
   demo: site('/partners?schedule=1'),
   livePlatform: site('/partners?schedule=1'),
   contact: site('/partners?schedule=1'),
@@ -65,6 +69,16 @@ export const cta = {
   watchDemo: 'Watch the demo',
   watchProductDemo: 'Watch the product demo',
   exploreLivePlatform: 'Explore the live platform',
+}
+
+/** Booking overlay chrome around the Calendly scheduler */
+export const booking = {
+  title: 'Schedule a meeting',
+  subtitle: 'PRISM AI discovery and introduction call',
+  openInNewTab: 'Open in a new tab',
+  close: 'Close',
+  loading: 'Loading the booking calendar',
+  frameTitle: 'Book a PRISM AI discovery and introduction call on Calendly',
 }
 
 /* ------------------------------------------------------------------ 01 */
@@ -144,11 +158,27 @@ export const introducing = {
   eyebrow: 'Introducing PRISM AI',
   title: 'AI at scale demands more than intelligence. It demands control.',
   body: [
-    'PRISM AI is an enterprise AI governance platform by MoogleLabs, designed to help organisations observe, evaluate and govern AI systems through one unified platform.',
-    'From individual model interactions to multi-agent workflows, prompt performance, retrieval activity and operational expenditure, PRISM brings critical AI intelligence into one operational view.',
+    'PRISM AI is an enterprise AI governance platform by MoogleLabs, designed to help organisations observe, evaluate and govern AI-powered applications, models and agentic workflows through one unified control plane.',
+    'From individual model interactions and prompt execution to multi-agent workflows, knowledge retrieval, evaluation results and operational expenditure, PRISM brings critical AI intelligence into one consolidated operational view.',
   ],
-  stages: ['Observe', 'Evaluate', 'Govern'],
-  summary: 'One platform. Nine capability groups. Greater visibility across your AI ecosystem.',
+  stages: [
+    {
+      id: 'observe',
+      title: 'Observe',
+      body: 'Gain end-to-end visibility into AI activity, models, agents and workflows.',
+    },
+    {
+      id: 'evaluate',
+      title: 'Evaluate',
+      body: 'Measure quality, reliability and performance across your AI ecosystem.',
+    },
+    {
+      id: 'govern',
+      title: 'Govern',
+      body: 'Enforce controls, ensure compliance and keep people in the loop.',
+    },
+  ],
+  summary: 'One platform. Nine capability groups. Complete operational visibility across your AI ecosystem.',
 }
 
 /* ------------------------------------------------------------------ 04 */
@@ -160,13 +190,12 @@ export type ConsoleTab = {
   body: string
 }
 
+/**
+ * The platform explanation now lives once, in `introducing`, so this section
+ * opens straight on the console with its pull line as the heading.
+ */
 export const platform = {
   eyebrow: 'The platform',
-  title: 'Your AI ecosystem. One unified view of its operations.',
-  body: [
-    'PRISM AI helps organisations understand, evaluate and govern AI-powered applications and agentic workflows.',
-    'From individual model interactions to multi-agent execution, prompt performance, retrieval activity and operational expenditure, PRISM brings critical AI intelligence into a consolidated operational view.',
-  ],
   pullLine: "Don't just look at the output. Look at what happened behind it.",
   tabs: [
     {
@@ -606,5 +635,4 @@ export const closing = {
   title: 'Your AI ecosystem will keep evolving. Your governance should keep pace.',
   body: 'The question is whether your organisation will have the visibility and governance to keep pace.',
   focus: 'Bring your AI ecosystem into focus with PRISM AI.',
-  attribution: 'PRISM AI — An Enterprise AI Governance Platform by MoogleLabs. Part of Group Seasia.',
 }

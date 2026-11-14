@@ -147,7 +147,10 @@ export function GateWay() {
           </div>
           <Reveal delay={0.1} className="lg:col-span-5 lg:self-end lg:pb-1">
             <p className="text-title text-fg">
-              {gateWay.name} <span className="text-fg-3">—</span> <span className="text-fg-2">{gateWay.expansion}</span>
+              {gateWay.name} <span className="text-fg-3">—</span>{' '}
+              <span className="rounded-[4px] bg-accent/35 box-decoration-clone px-1.5 text-fg">
+                {gateWay.expansion}
+              </span>
             </p>
             <div className="mt-4 space-y-3">
               {gateWay.body.map((p, i) => (

@@ -86,11 +86,10 @@ export function EnterpriseScale() {
         <div className="mt-16 grid gap-10 md:mt-24 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
             <Reveal>
-              <div className="flex items-center gap-3">
-                <BandMarker band={securityBand} />
-                <span className="text-meta text-fg-3">{security.number}</span>
-              </div>
-              <h3 className="mt-4 text-display-m text-fg">{security.title}</h3>
+              <h3 className="flex items-center gap-3 text-display-m text-fg">
+                <BandMarker band={securityBand} className="h-5" />
+                {security.title}
+              </h3>
               <p className="mt-3 text-lead text-fg">{security.headline}</p>
               <p className="mt-2 text-fg-2">{security.intro}</p>
             </Reveal>
@@ -108,22 +107,16 @@ export function EnterpriseScale() {
 
           <Reveal delay={0.1} className="lg:col-span-7">
             <div className="overflow-hidden rounded-2xl border border-line-strong bg-surface">
-              <div className="flex items-center justify-between border-b border-line px-5 py-3 md:px-6">
+              <div className="border-b border-line px-5 py-3 md:px-6">
                 <span className="text-meta text-fg-3">Control</span>
-                <span className="text-meta text-fg-3">Capability</span>
               </div>
               <ul className="divide-y divide-line">
-                {security.items.map((item, j) => (
-                  <li key={item} className="flex items-center justify-between gap-6 px-5 py-4 md:px-6 md:py-5">
-                    <span className="flex items-center gap-4">
-                      <span className="flex size-8 shrink-0 items-center justify-center rounded-lg border border-line text-fg-2">
-                        <ShieldCheck size={16} strokeWidth={1.5} aria-hidden="true" />
-                      </span>
-                      <span className="text-[0.9375rem] text-fg md:text-base">{item}</span>
+                {security.items.map((item) => (
+                  <li key={item} className="flex items-center gap-4 px-5 py-4 md:px-6 md:py-5">
+                    <span className="flex size-8 shrink-0 items-center justify-center rounded-lg border border-line text-fg-2">
+                      <ShieldCheck size={16} strokeWidth={1.5} aria-hidden="true" />
                     </span>
-                    <span className="shrink-0 text-meta text-fg-3 tabular-nums">
-                      {security.number}.{j + 1}
-                    </span>
+                    <span className="text-[0.9375rem] text-fg md:text-base">{item}</span>
                   </li>
                 ))}
               </ul>
